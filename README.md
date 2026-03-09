@@ -221,14 +221,24 @@ The models are the **LORA** parameters for finetuning LLaMa-3-8b-Instruct. **Reg
 ## 📌 Citation
 
 ```
-@misc{li2024500xcompressorgeneralizedpromptcompression,
-      title={500xCompressor: Generalized Prompt Compression for Large Language Models}, 
-      author={Zongqian Li and Yixuan Su and Nigel Collier},
-      year={2024},
-      eprint={2408.03094},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2408.03094}, 
+@inproceedings{li-etal-2025-500xcompressor,
+    title = "500x{C}ompressor: Generalized Prompt Compression for Large Language Models",
+    author = "Li, Zongqian  and
+      Su, Yixuan  and
+      Collier, Nigel",
+    editor = "Che, Wanxiang  and
+      Nabende, Joyce  and
+      Shutova, Ekaterina  and
+      Pilehvar, Mohammad Taher",
+    booktitle = "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.acl-long.1219/",
+    doi = "10.18653/v1/2025.acl-long.1219",
+    pages = "25081--25091",
+    ISBN = "979-8-89176-251-0",
 }
 ```
 
