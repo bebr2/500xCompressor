@@ -45,12 +45,21 @@ def create_ds_config(path, hidden_size):
             "stage": 3,
             "overlap_comm": True,
             "contiguous_gradients": True,
-            "stage3_gather_16bit_weights_on_model_save": False
+            "stage3_gather_16bit_weights_on_model_save": False,
+            "partition_activations": True,  # 分片激活值
+            "contiguous_memory_optimization": True
         },
         "gradient_accumulation_steps": 1,
         "train_batch_size": "auto",
         "train_micro_batch_size_per_gpu": "auto",
-        "bf16": {"enabled": True}
+        "bf16": {"enabled": True},
+        "activation_checkpointing": {
+            "partition_activations": True,
+            "cpu_checkpointing": False,
+            "contiguous_memory_optimization": True,
+            "number_checkpoints": 16,  # 减少checkpoint数量
+            "synchronize_checkpoint_boundary": False
+        }
     }
     with open(path, 'w') as f:
         json.dump(config, f)
@@ -92,6 +101,7 @@ def main():
             report_to="none",
             bf16=True,
             dataloader_num_workers=0,
+            gradient_checkpointing=True,  # 启用gradient checkpointing减少内存
         )
 
         trainer = Trainer(model=model, args=training_args, train_dataset=dataset)
