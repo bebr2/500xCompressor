@@ -1,0 +1,10 @@
+       ^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/trainer.py", line 2429, in _inner_training_loop
+[rank2]:     self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
+[rank2]:                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/integrations/deepspeed.py", line 447, in deepspeed_init
+[rank2]:     hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
+[rank2]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/integrations/deepspeed.py", line 271, in trainer_config_finalize
+[rank2]:     raise ValueError(
+[rank2]: ValueError: Please correct the following DeepSpeed config values that mismatch TrainingArguments values:
+[rank2]: - ds train_batch_size=9 vs hf train_batch_size (calculated)=72

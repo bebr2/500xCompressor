@@ -1,6 +1,6 @@
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining
 
-deepspeed train_500xCompressor.py \
+deepspeed  --master_port=11470 train_500xCompressor.py \
     --model_path /mnt/hdfs/wangchangyue/LLM/Qwen3-8B \
     --num_mem 256 \
     --max_length 2048 \
