@@ -1,37 +1,268 @@
-rame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x247 (0x7f1c17820407 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #2: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x1691 (0x7f1c17825011 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #3: c10d::ProcessGroupNCCL::Watchdog::run() + 0xdf (0x7f1c1782625f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #4: <unknown function> + 0xd44a3 (0x7f1c6e6ba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
-frame #5: <unknown function> + 0x891f5 (0x7f1c76e601f5 in /lib/x86_64-linux-gnu/libc.so.6)
-frame #6: <unknown function> + 0x1098dc (0x7f1c76ee08dc in /lib/x86_64-linux-gnu/libc.so.6)
+124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (10/34) after sleep for 1000 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (10/34) after sleep for 1000 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (10/34) after sleep for 1000 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (10/34) after sleep for 1000 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (11/34) after sleep for 1100 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (11/34) after sleep for 1100 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (11/34) after sleep for 1100 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (11/34) after sleep for 1100 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (11/34) after sleep for 1100 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (12/34) after sleep for 1200 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (12/34) after sleep for 1200 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (12/34) after sleep for 1200 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (12/34) after sleep for 1200 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (12/34) after sleep for 1200 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (13/34) after sleep for 1300 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (13/34) after sleep for 1300 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (13/34) after sleep for 1300 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (13/34) after sleep for 1300 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (13/34) after sleep for 1300 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (14/34) after sleep for 1400 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (14/34) after sleep for 1400 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (14/34) after sleep for 1400 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (14/34) after sleep for 1400 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (14/34) after sleep for 1400 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (15/34) after sleep for 1500 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (15/34) after sleep for 1500 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (15/34) after sleep for 1500 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (15/34) after sleep for 1500 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (15/34) after sleep for 1500 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (16/34) after sleep for 1600 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (16/34) after sleep for 1600 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (16/34) after sleep for 1600 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (16/34) after sleep for 1600 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (16/34) after sleep for 1600 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (17/34) after sleep for 1700 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (17/34) after sleep for 1700 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (17/34) after sleep for 1700 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (17/34) after sleep for 1700 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (17/34) after sleep for 1700 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (18/34) after sleep for 1800 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (18/34) after sleep for 1800 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (18/34) after sleep for 1800 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (18/34) after sleep for 1800 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (18/34) after sleep for 1800 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (19/34) after sleep for 1900 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (19/34) after sleep for 1900 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (19/34) after sleep for 1900 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (19/34) after sleep for 1900 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (19/34) after sleep for 1900 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (20/34) after sleep for 2000 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (20/34) after sleep for 2000 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (20/34) after sleep for 2000 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (20/34) after sleep for 2000 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (20/34) after sleep for 2000 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (21/34) after sleep for 2100 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (21/34) after sleep for 2100 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (21/34) after sleep for 2100 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (21/34) after sleep for 2100 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (21/34) after sleep for 2100 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (22/34) after sleep for 2200 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (22/34) after sleep for 2200 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (22/34) after sleep for 2200 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (22/34) after sleep for 2200 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (22/34) after sleep for 2200 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (23/34) after sleep for 2300 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (23/34) after sleep for 2300 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (23/34) after sleep for 2300 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (23/34) after sleep for 2300 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (23/34) after sleep for 2300 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (24/34) after sleep for 2400 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (24/34) after sleep for 2400 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (24/34) after sleep for 2400 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (24/34) after sleep for 2400 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (24/34) after sleep for 2400 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (25/34) after sleep for 2500 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (25/34) after sleep for 2500 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (25/34) after sleep for 2500 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (25/34) after sleep for 2500 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (25/34) after sleep for 2500 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (26/34) after sleep for 2600 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (26/34) after sleep for 2600 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (26/34) after sleep for 2600 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (26/34) after sleep for 2600 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (26/34) after sleep for 2600 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (27/34) after sleep for 2700 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (27/34) after sleep for 2700 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (27/34) after sleep for 2700 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (27/34) after sleep for 2700 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (27/34) after sleep for 2700 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (28/34) after sleep for 2800 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (28/34) after sleep for 2800 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (28/34) after sleep for 2800 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (28/34) after sleep for 2800 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (28/34) after sleep for 2800 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (29/34) after sleep for 2900 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (29/34) after sleep for 2900 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (29/34) after sleep for 2900 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (29/34) after sleep for 2900 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (29/34) after sleep for 2900 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (30/34) after sleep for 3000 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (30/34) after sleep for 3000 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (30/34) after sleep for 3000 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (30/34) after sleep for 3000 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (30/34) after sleep for 3000 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (31/34) after sleep for 3100 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (31/34) after sleep for 3100 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (31/34) after sleep for 3100 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (31/34) after sleep for 3100 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (31/34) after sleep for 3100 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (32/34) after sleep for 3200 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (32/34) after sleep for 3200 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (32/34) after sleep for 3200 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (32/34) after sleep for 3200 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (32/34) after sleep for 3200 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (33/34) after sleep for 3300 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (33/34) after sleep for 3300 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (33/34) after sleep for 3300 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (33/34) after sleep for 3300 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (33/34) after sleep for 3300 msec
+n124-167-226:379334:380461 [2] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (34/34) after sleep for 3400 msec
+n124-167-226:379335:380464 [3] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (34/34) after sleep for 3400 msec
+n124-167-226:379337:380467 [5] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (34/34) after sleep for 3400 msec
+n124-167-226:379333:380470 [1] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (34/34) after sleep for 3400 msec
+n124-167-226:379339:380473 [7] NCCL INFO socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, retrying (34/34) after sleep for 3400 msec
 
-Exception raised from run at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2063 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f1c75b7cb80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
-frame #1: <unknown function> + 0xe336d1 (0x7f1c177fc6d1 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #2: <unknown function> + 0x95044f (0x7f1c1731944f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #3: <unknown function> + 0xd44a3 (0x7f1c6e6ba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
-frame #4: <unknown function> + 0x891f5 (0x7f1c76e601f5 in /lib/x86_64-linux-gnu/libc.so.6)
-frame #5: <unknown function> + 0x1098dc (0x7f1c76ee08dc in /lib/x86_64-linux-gnu/libc.so.6)
+[2026-05-16 10:43:10] n124-167-226:379334:380461 [2] misc/socket.cc:578 NCCL WARN socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+n124-167-226:379334:380461 [2] NCCL INFO misc/socket.cc:669 -> 6
+n124-167-226:379334:380461 [2] NCCL INFO misc/socket.cc:718 -> 6
+n124-167-226:379334:380461 [2] NCCL INFO bootstrap.cc:608 -> 6
+n124-167-226:379334:380461 [2] NCCL INFO bootstrap.cc:690 -> 6
+n124-167-226:379334:380461 [2] NCCL INFO init.cc:1444 -> 6
+n124-167-226:379334:380461 [2] NCCL INFO group.cc:73 -> 6 [Async thread]
+n124-167-226:379334:379334 [2] NCCL INFO group.cc:475 -> 6
+n124-167-226:379334:379334 [2] NCCL INFO group.cc:694 -> 6
+n124-167-226:379334:379334 [2] NCCL INFO init.cc:1964 -> 6
 
-[rank0]:[E516 10:11:37.166978153 ProcessGroupNCCL.cpp:744] [Rank 0] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
-[rank0]:[E516 10:11:37.167018540 ProcessGroupNCCL.cpp:758] [Rank 0] To avoid data inconsistency, we are taking the entire process down.
-[rank0]:[E516 10:11:37.168050699 ProcessGroupNCCL.cpp:2057] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=4533, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600060 milliseconds before timing out.
-Exception raised from checkTimeout at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:686 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4759145b80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
-frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x247 (0x7f475a020407 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #2: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x1691 (0x7f475a025011 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #3: c10d::ProcessGroupNCCL::Watchdog::run() + 0xdf (0x7f475a02625f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #4: <unknown function> + 0xd44a3 (0x7f47b0eba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
-frame #5: <unknown function> + 0x891f5 (0x7f47b95471f5 in /lib/x86_64-linux-gnu/libc.so.6)
-frame #6: <unknown function> + 0x1098dc (0x7f47b95c78dc in /lib/x86_64-linux-gnu/libc.so.6)
+[2026-05-16 10:43:10] n124-167-226:379335:380464 [3] misc/socket.cc:578 NCCL WARN socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+n124-167-226:379335:380464 [3] NCCL INFO misc/socket.cc:669 -> 6
+n124-167-226:379335:380464 [3] NCCL INFO misc/socket.cc:718 -> 6
+n124-167-226:379335:380464 [3] NCCL INFO bootstrap.cc:608 -> 6
+n124-167-226:379335:380464 [3] NCCL INFO bootstrap.cc:690 -> 6
+n124-167-226:379335:380464 [3] NCCL INFO init.cc:1444 -> 6
+n124-167-226:379335:380464 [3] NCCL INFO group.cc:73 -> 6 [Async thread]
+n124-167-226:379335:379335 [3] NCCL INFO group.cc:475 -> 6
+n124-167-226:379335:379335 [3] NCCL INFO group.cc:694 -> 6
+n124-167-226:379335:379335 [3] NCCL INFO init.cc:1964 -> 6
 
-terminate called after throwing an instance of 'c10::DistBackendError'
-  what():  [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=4533, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600060 milliseconds before timing out.
-Exception raised from checkTimeout at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:686 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4759145b80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
-frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x247 (0x7f475a020407 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #2: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x1691 (0x7f475a025011 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #3: c10d::ProcessGroupNCCL::Watchdog::run() + 0xdf (0x7f475a02625f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #4: <unknown function> + 0xd44a3 (0x7f47b0eba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
-frame #5: <unknown function> + 0x891f5 (0x7f47b95471f5 in /lib/x86_64-linux-gnu/libc.so.6)
-frame #6: <unknown function> + 0x1098dc (0x7f47b95c78dc in /lib/x86_64-linux-gnu/libc.so.6)
+[2026-05-16 10:43:10] n124-167-226:379337:380467 [5] misc/socket.cc:578 NCCL WARN socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+n124-167-226:379337:380467 [5] NCCL INFO misc/socket.cc:669 -> 6
+n124-167-226:379337:380467 [5] NCCL INFO misc/socket.cc:718 -> 6
+n124-167-226:379337:380467 [5] NCCL INFO bootstrap.cc:608 -> 6
+n124-167-226:379337:380467 [5] NCCL INFO bootstrap.cc:690 -> 6
+n124-167-226:379337:380467 [5] NCCL INFO init.cc:1444 -> 6
+n124-167-226:379337:380467 [5] NCCL INFO group.cc:73 -> 6 [Async thread]
+n124-167-226:379337:379337 [5] NCCL INFO group.cc:475 -> 6
+n124-167-226:379337:379337 [5] NCCL INFO group.cc:694 -> 6
+n124-167-226:379337:379337 [5] NCCL INFO init.cc:1964 -> 6
+[rank2]: [rank2]: [rank2]: [rank2]: Traceback (most recent call last):
+[rank2]: [rank2]: [rank2]: [rank2]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 318, in <module>
+[rank2]: [rank2]: [rank2]: [rank2]:     max_bsz = find_max_batch_size(args, rank, local_rank, world_size)
+[rank2]: [rank2]: [rank2]: [rank2]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: [rank2]: [rank2]: [rank2]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 249, in find_max_batch_size
+[rank2]: [rank2]: [rank2]: [rank2]:     dist.all_reduce(result_tensor, op=dist.ReduceOp.MIN)
+[rank2]: [rank2]: [rank2]: [rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank2]: [rank2]: [rank2]: [rank2]:     return func(*args, **kwargs)
+[rank2]: [rank2]: [rank2]: [rank2]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank2]: [rank2]: [rank2]: [rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py", line 2935, in all_reduce
+[rank2]: [rank2]: [rank2]: [rank2]:     work = group.allreduce([tensor], opts)
+[rank2]: [rank2]: [rank2]: [rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: [rank2]: [rank2]: [rank2]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.cpp:94, remote process exited or there was a network error, NCCL version 2.27.5
+[rank2]: [rank2]: [rank2]: [rank2]: ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+[rank2]: [rank2]: [rank2]: [rank2]: Last error:
+[rank2]: [rank2]: [rank2]: [rank2]: socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+[rank3]: [rank3]: [rank3]: [rank3]: Traceback (most recent call last):
+[rank3]: [rank3]: [rank3]: [rank3]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 318, in <module>
+[rank3]: [rank3]: [rank3]: [rank3]:     max_bsz = find_max_batch_size(args, rank, local_rank, world_size)
+[rank3]: [rank3]: [rank3]: [rank3]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: [rank3]: [rank3]: [rank3]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 249, in find_max_batch_size
+[rank3]: [rank3]: [rank3]: [rank3]:     dist.all_reduce(result_tensor, op=dist.ReduceOp.MIN)
+[rank3]: [rank3]: [rank3]: [rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank3]: [rank3]: [rank3]: [rank3]:     return func(*args, **kwargs)
+[rank3]: [rank3]: [rank3]: [rank3]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank3]: [rank3]: [rank3]: [rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py", line 2935, in all_reduce
+[rank3]: [rank3]: [rank3]: [rank3]:     work = group.allreduce([tensor], opts)
+[rank3]: [rank3]: [rank3]: [rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: [rank3]: [rank3]: [rank3]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.cpp:94, remote process exited or there was a network error, NCCL version 2.27.5
+[rank3]: [rank3]: [rank3]: [rank3]: ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+[rank3]: [rank3]: [rank3]: [rank3]: Last error:
+[rank3]: [rank3]: [rank3]: [rank3]: socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+
+[2026-05-16 10:43:10] n124-167-226:379333:380470 [1] misc/socket.cc:578 NCCL WARN socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+n124-167-226:379333:380470 [1] NCCL INFO misc/socket.cc:669 -> 6
+n124-167-226:379333:380470 [1] NCCL INFO misc/socket.cc:718 -> 6
+n124-167-226:379333:380470 [1] NCCL INFO bootstrap.cc:608 -> 6
+n124-167-226:379333:380470 [1] NCCL INFO bootstrap.cc:690 -> 6
+n124-167-226:379333:380470 [1] NCCL INFO init.cc:1444 -> 6
+n124-167-226:379333:380470 [1] NCCL INFO group.cc:73 -> 6 [Async thread]
+n124-167-226:379333:379333 [1] NCCL INFO group.cc:475 -> 6
+n124-167-226:379333:379333 [1] NCCL INFO group.cc:694 -> 6
+n124-167-226:379333:379333 [1] NCCL INFO init.cc:1964 -> 6
+[rank5]: [rank5]: [rank5]: [rank5]: Traceback (most recent call last):
+[rank5]: [rank5]: [rank5]: [rank5]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 318, in <module>
+[rank5]: [rank5]: [rank5]: [rank5]:     max_bsz = find_max_batch_size(args, rank, local_rank, world_size)
+[rank5]: [rank5]: [rank5]: [rank5]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: [rank5]: [rank5]: [rank5]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 249, in find_max_batch_size
+[rank5]: [rank5]: [rank5]: [rank5]:     dist.all_reduce(result_tensor, op=dist.ReduceOp.MIN)
+[rank5]: [rank5]: [rank5]: [rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank5]: [rank5]: [rank5]: [rank5]:     return func(*args, **kwargs)
+[rank5]: [rank5]: [rank5]: [rank5]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank5]: [rank5]: [rank5]: [rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py", line 2935, in all_reduce
+[rank5]: [rank5]: [rank5]: [rank5]:     work = group.allreduce([tensor], opts)
+[rank5]: [rank5]: [rank5]: [rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: [rank5]: [rank5]: [rank5]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.cpp:94, remote process exited or there was a network error, NCCL version 2.27.5
+[rank5]: [rank5]: [rank5]: [rank5]: ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+[rank5]: [rank5]: [rank5]: [rank5]: Last error:
+[rank5]: [rank5]: [rank5]: [rank5]: socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+
+[2026-05-16 10:43:10] n124-167-226:379339:380473 [7] misc/socket.cc:578 NCCL WARN socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+n124-167-226:379339:380473 [7] NCCL INFO misc/socket.cc:669 -> 6
+n124-167-226:379339:380473 [7] NCCL INFO misc/socket.cc:718 -> 6
+n124-167-226:379339:380473 [7] NCCL INFO bootstrap.cc:608 -> 6
+n124-167-226:379339:380473 [7] NCCL INFO bootstrap.cc:690 -> 6
+n124-167-226:379339:380473 [7] NCCL INFO init.cc:1444 -> 6
+n124-167-226:379339:380473 [7] NCCL INFO group.cc:73 -> 6 [Async thread]
+n124-167-226:379339:379339 [7] NCCL INFO group.cc:475 -> 6
+n124-167-226:379339:379339 [7] NCCL INFO group.cc:694 -> 6
+n124-167-226:379339:379339 [7] NCCL INFO init.cc:1964 -> 6
+[rank1]: [rank1]: [rank1]: [rank1]: Traceback (most recent call last):
+[rank1]: [rank1]: [rank1]: [rank1]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 318, in <module>
+[rank1]: [rank1]: [rank1]: [rank1]:     max_bsz = find_max_batch_size(args, rank, local_rank, world_size)
+[rank1]: [rank1]: [rank1]: [rank1]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: [rank1]: [rank1]: [rank1]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 249, in find_max_batch_size
+[rank1]: [rank1]: [rank1]: [rank1]:     dist.all_reduce(result_tensor, op=dist.ReduceOp.MIN)
+[rank1]: [rank1]: [rank1]: [rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank1]: [rank1]: [rank1]: [rank1]:     return func(*args, **kwargs)
+[rank1]: [rank1]: [rank1]: [rank1]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank1]: [rank1]: [rank1]: [rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py", line 2935, in all_reduce
+[rank1]: [rank1]: [rank1]: [rank1]:     work = group.allreduce([tensor], opts)
+[rank1]: [rank1]: [rank1]: [rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: [rank1]: [rank1]: [rank1]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.cpp:94, remote process exited or there was a network error, NCCL version 2.27.5
+[rank1]: [rank1]: [rank1]: [rank1]: ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+[rank1]: [rank1]: [rank1]: [rank1]: Last error:
+[rank1]: [rank1]: [rank1]: [rank1]: socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+[rank7]: [rank7]: [rank7]: [rank7]: Traceback (most recent call last):
+[rank7]: [rank7]: [rank7]: [rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 318, in <module>
+[rank7]: [rank7]: [rank7]: [rank7]:     max_bsz = find_max_batch_size(args, rank, local_rank, world_size)
+[rank7]: [rank7]: [rank7]: [rank7]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: [rank7]: [rank7]: [rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 249, in find_max_batch_size
+[rank7]: [rank7]: [rank7]: [rank7]:     dist.all_reduce(result_tensor, op=dist.ReduceOp.MIN)
+[rank7]: [rank7]: [rank7]: [rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank7]: [rank7]: [rank7]: [rank7]:     return func(*args, **kwargs)
+[rank7]: [rank7]: [rank7]: [rank7]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank7]: [rank7]: [rank7]: [rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py", line 2935, in all_reduce
+[rank7]: [rank7]: [rank7]: [rank7]:     work = group.allreduce([tensor], opts)
+[rank7]: [rank7]: [rank7]: [rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: [rank7]: [rank7]: [rank7]: torch.distributed.DistBackendError: NCCL error in: /pytorch/torch/csrc/distributed/c10d/NCCLUtils.cpp:94, remote process exited or there was a network error, NCCL version 2.27.5
+[rank7]: [rank7]: [rank7]: [rank7]: ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+[rank7]: [rank7]: [rank7]: [rank7]: Last error:
+[rank7]: [rank7]: [rank7]: [rank7]: socketPollConnect: connect to fdbd:dccd:cdc2:12d1:0:279::<56033> returned Connection refused, exceeded error retry count after 35 attempts
+[2026-05-16 10:43:14,965] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379332
+[2026-05-16 10:43:15,702] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379333
+[2026-05-16 10:43:15,704] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379334
+[2026-05-16 10:43:15,705] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379335
+[2026-05-16 10:43:15,705] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379336
+[2026-05-16 10:43:16,200] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379337
+[2026-05-16 10:43:16,202] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379338
+[2026-05-16 10:43:16,657] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 379339
+[2026-05-16 10:43:16,659] [ERROR] [launch.py:341:sigkill_handler] ['/usr/local/bin/python3.11', '-u', 'test_bsz.py', '--local_rank=7', '--model_path', '/mnt/hdfs/wangchangyue/LLM/Qwen3-8B', '--num_mem', '256', '--max_length', '2048', '--start_bsz', '2', '--max_bsz_limit', '16'] exits with return code = 1
