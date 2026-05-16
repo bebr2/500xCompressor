@@ -230,7 +230,7 @@ if __name__ == "__main__":
         per_device_eval_batch_size=args.per_device_eval_batch_size,
         save_strategy="steps",
         save_steps=args.save_steps,
-        evaluation_strategy="steps",
+        eval_strategy="steps",
         eval_steps=args.eval_steps,
         eval_accumulation_steps=args.eval_accumulation_steps,
         logging_dir=args.logging_dir,
