@@ -43,16 +43,16 @@ def setup_distributed():
     torch.cuda.set_device(local_rank)
     return rank, local_rank, world_size
 
-def create_deepspeed_config(output_path, batch_size, gradient_accumulation_steps=1):
+def create_deepspeed_config(output_path, batch_size, hidden_size, gradient_accumulation_steps=1):
     """Create DeepSpeed config with proper settings."""
     config = {
         "zero_optimization": {
             "stage": 3,
             "overlap_comm": True,
             "contiguous_gradients": True,
-            "reduce_bucket_size": "auto",
-            "stage3_prefetch_bucket_size": "auto",
-            "stage3_param_persistence_threshold": "auto",
+            "reduce_bucket_size": hidden_size * hidden_size,
+            "stage3_prefetch_bucket_size": hidden_size * hidden_size,
+            "stage3_param_persistence_threshold": hidden_size,
             "sub_group_size": 1e9,
             "stage3_max_live_parameters": 1e9,
             "stage3_max_reuse_distance": 1e9,
@@ -113,6 +113,9 @@ class TestModel(nn.Module):
             torch.randn(1, num_mem, hidden_size, dtype=torch.bfloat16)
         )
 
+        # Important: inherit config from base model for DeepSpeed
+        self.config = base_model.config
+
     def forward(self, input_ids, labels=None, **kwargs):
         # Get embeddings
         inputs_embeds = self.llama.get_input_embeddings()(input_ids)
@@ -136,7 +139,15 @@ def test_batch_size(args, batch_size, rank, local_rank, world_size):
     ds_config_path = os.path.join(temp_dir, "ds_config.json")
     output_dir = os.path.join(temp_dir, "output")
 
-    create_deepspeed_config(ds_config_path, batch_size)
+    # Load base model first to get hidden_size
+    base_model = AutoModelForCausalLM.from_pretrained(
+        args.model_path,
+        torch_dtype=torch.bfloat16,
+        trust_remote_code=True,
+    )
+    hidden_size = base_model.config.hidden_size
+
+    create_deepspeed_config(ds_config_path, batch_size, hidden_size)
 
     if rank == 0:
         print(f"  Testing batch_size={batch_size}, creating config at {ds_config_path}")
@@ -152,12 +163,7 @@ def test_batch_size(args, batch_size, rank, local_rank, world_size):
     )
 
     # Load base model - DeepSpeed will handle sharding
-    base_model = AutoModelForCausalLM.from_pretrained(
-        args.model_path,
-        torch_dtype=torch.bfloat16,
-        trust_remote_code=True,
-    )
-    hidden_size = base_model.config.hidden_size
+    # base_model already loaded above
 
     # Apply LoRA
     base_model = get_peft_model(base_model, lora_config)
