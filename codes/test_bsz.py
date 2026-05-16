@@ -45,9 +45,7 @@ def create_ds_config(path, hidden_size):
             "stage": 3,
             "overlap_comm": True,
             "contiguous_gradients": True,
-            "stage3_gather_16bit_weights_on_model_save": False,
-            "partition_activations": True,  # 分片激活值
-            "contiguous_memory_optimization": True
+            "stage3_gather_16bit_weights_on_model_save": False
         },
         "gradient_accumulation_steps": 1,
         "train_batch_size": "auto",
@@ -55,10 +53,7 @@ def create_ds_config(path, hidden_size):
         "bf16": {"enabled": True},
         "activation_checkpointing": {
             "partition_activations": True,
-            "cpu_checkpointing": False,
-            "contiguous_memory_optimization": True,
-            "number_checkpoints": 16,  # 减少checkpoint数量
-            "synchronize_checkpoint_boundary": False
+            "contiguous_memory_optimization": True
         }
     }
     with open(path, 'w') as f:
