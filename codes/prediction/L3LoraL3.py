@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from peft import get_peft_model
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, DynamicCache
 
 def load_lora_parameters(model, lora_params_path):
     """
@@ -100,7 +100,7 @@ class L3LoraL3(nn.Module):
             output_path (str): Path to save the K V values for the compressed tokens.
 
         Returns:
-            trimmed_past_key_values (Tuple[Tuple[torch.Tensor, torch.Tensor], ...]): K V values for the compressed tokens.
+            trimmed_past_key_values: K V values for the compressed tokens.
         """
         # If the input is not context token
         # use the tokenizer to tokenize the context
@@ -126,15 +126,18 @@ class L3LoraL3(nn.Module):
 
         # K V values for the encoder output
         past_key_values = encoder_output.past_key_values
-        # K V values for the compressed tokens in the encoder output
-        trimmed_past_key_values = tuple(
-            (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
-            for layer_key, layer_value in past_key_values
-        )
+
+        # DynamicCache 格式：直接切片内部 key_cache/value_cache
+        for i in range(len(past_key_values.key_cache)):
+            past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :]
+            past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :]
+        trimmed_past_key_values = past_key_values
 
         # save the K V values for the compressed tokens
         if output_path is not None:
-            torch.save(trimmed_past_key_values, output_path)
+            # 保存为 tuple 格式以便兼容
+            legacy_cache = trimmed_past_key_values.to_legacy_cache() if hasattr(trimmed_past_key_values, 'to_legacy_cache') else trimmed_past_key_values
+            torch.save(legacy_cache, output_path)
             print(f"Saved compressed past_key_values to {output_path}")
 
         return trimmed_past_key_values
@@ -144,7 +147,7 @@ class L3LoraL3(nn.Module):
         Regenerate the compressed text or do QA based on the compressed tokens.
 
         Args:
-            past_key_values (Tuple[Tuple[torch.Tensor, torch.Tensor], ...]): K V values for the compressed tokens.
+            past_key_values: K V values for the compressed tokens (DynamicCache or tuple).
             max_new_tokens (int): Maximum number of new tokens to generate.
             prompt (str): Prompt text.
 
@@ -153,6 +156,16 @@ class L3LoraL3(nn.Module):
         """
         # whether the model ends automatically
         end = False
+
+        # 如果传入的是 tuple 格式，需要转换为 DynamicCache
+        if isinstance(past_key_values, tuple):
+            cache = DynamicCache()
+            for layer_idx, (key, value) in enumerate(past_key_values):
+                cache.update(layer_idx, key, value)
+            past_key_values = cache
+
+        # 获取 batch size
+        batch_size = past_key_values.key_cache[0].size(0)
 
         # input prompt tokens:
         # BOS token for regenerating the compressed text
@@ -165,7 +178,7 @@ class L3LoraL3(nn.Module):
                 return_tensors="pt",
                 add_special_tokens=False
             )
-        prompt_tokens = prompt_tokens * past_key_values[0][0].size(0)
+        prompt_tokens = prompt_tokens * batch_size
         input_tokens = torch.tensor(prompt_tokens, device=self.device)
 
         generated_text = []

@@ -84,7 +84,7 @@ class L3LoraL3QA(nn.Module):
         self.device = device
         self.hidden_size = hidden_size
 
-    def forward(self, input_ids, labels):
+    def forward(self, input_ids, labels=None, **kwargs):
         ####################
         # Encoder - llama+lora
         ####################
@@ -101,11 +101,12 @@ class L3LoraL3QA(nn.Module):
         encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
         # K V values for the encoder output
         past_key_values = encoder_output.past_key_values
-        # K V values for the compressed tokens in the encoder output
-        trimmed_past_key_values = tuple(
-            (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
-            for layer_key, layer_value in past_key_values
-        )
+
+        # DynamicCache 格式：直接切片内部 key_cache/value_cache
+        for i in range(len(past_key_values.key_cache)):
+            past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :]
+            past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :]
+        trimmed_past_key_values = past_key_values
 
         ####################
         # Decoder - llama

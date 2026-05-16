@@ -67,27 +67,12 @@ class L3LoraL3(nn.Module):
         encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
         past_key_values = encoder_output.past_key_values
 
-        # 打印类型和属性，调试
-        if text_tokens.shape[0] > 0 and self.llama.get_input_embeddings()(text_tokens).sum() != 0:
-            print(f"past_key_values type: {type(past_key_values)}")
-            print(f"past_key_values attrs: {dir(past_key_values)[:20]}")
-            if hasattr(past_key_values, 'key_cache'):
-                print(f"key_cache len: {len(past_key_values.key_cache)}")
-            if isinstance(past_key_values, tuple):
-                print(f"tuple len: {len(past_key_values)}")
-
-        # 直接切片 encoder 输出的 cache
-        # 如果是 Cache 对象，直接操作内部数据
-        if hasattr(past_key_values, 'key_cache'):
-            # 直接在原 cache 上切片
-            for i in range(len(past_key_values.key_cache)):
-                past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :]
-                past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :]
-            trimmed_cache = past_key_values
-        else:
-            # tuple 格式 - decoder 内部会检查 get_seq_length，需要转成 Cache
-            # 但直接用 tuple 会报错，所以必须保持 Cache 格式
-            trimmed_cache = past_key_values  # 假设已经是正确格式，只尝试切片
+        # DynamicCache 格式：直接切片内部 key_cache/value_cache
+        # 这样不触发 get_seq_length 检查
+        for i in range(len(past_key_values.key_cache)):
+            past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :]
+            past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :]
+        trimmed_cache = past_key_values
 
         ####################
         # Decoder - llama

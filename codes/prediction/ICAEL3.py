@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, DynamicCache
 from peft import get_peft_model
 
 def load_lora_parameters(model, lora_params_path):
