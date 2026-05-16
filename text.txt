@@ -1,12 +1,12 @@
-[rank4]:     super().__init__(model, peft_config, adapter_name, **kwargs)
-[rank4]:   File "/usr/local/lib/python3.11/site-packages/peft/peft_model.py", line 129, in __init__
-[rank4]:     self.base_model = cls(model, {adapter_name: peft_config}, adapter_name)
-[rank4]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank4]:   File "/usr/local/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 295, in __init__
-[rank4]:     self.inject_adapter(self.model, adapter_name, low_cpu_mem_usage=low_cpu_mem_usage, state_dict=state_dict)
-[rank4]:   File "/usr/local/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 712, in inject_adapter
-[rank4]:     peft_config = self._prepare_adapter_config(peft_config, model_config)
-[rank4]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank4]:   File "/usr/local/lib/python3.11/site-packages/peft/tuners/lora/model.py", line 473, in _prepare_adapter_config
-[rank4]:     raise ValueError("Please specify `target_modules` or `target_parameters`in `peft_config`")
-[rank4]: ValueError: Please specify `target_modules` or `target_parameters`in `peft_config`
+[rank5]:     self.optimizer = self._configure_zero_optimizer(basic_optimizer)
+[rank5]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 1848, in _configure_zero_optimizer
+[rank5]:     optimizer = Stage3ZeroOptimizer(
+[rank5]:                 ^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/zero/stage3.py", line 381, in __init__
+[rank5]:     self._create_fp16_partitions_with_defragmentation(self.trainable_param_groups)
+[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/zero/stage3.py", line 761, in _create_fp16_partitions_with_defragmentation
+[rank5]:     self.lp_param_buffer = __class__.defragment(parameter_partitions)
+[rank5]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/zero/stage3.py", line 604, in defragment
+[rank5]:     assert len(set(t.dtype for t in tensors)) == 1
