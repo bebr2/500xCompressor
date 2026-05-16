@@ -228,6 +228,7 @@ if __name__ == "__main__":
         num_train_epochs=args.num_train_epochs,
         per_device_train_batch_size=args.per_device_train_batch_size,
         per_device_eval_batch_size=args.per_device_eval_batch_size,
+        gradient_accumulation_steps=8,
         save_strategy="steps",
         save_steps=args.save_steps,
         eval_strategy="steps",
