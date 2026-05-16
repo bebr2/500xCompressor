@@ -1,115 +1,49 @@
-24-167-226:398101:399040 [1] NCCL INFO Channel 07/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 08/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 09/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 10/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 11/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 12/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 13/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 14/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 15/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 16/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 17/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 18/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 19/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 20/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 21/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 22/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398101:399040 [1] NCCL INFO Channel 23/0 : 1[1] -> 2[2] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 05/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 16/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 17/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 18/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 19/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 20/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 21/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 22/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398100:399041 [0] NCCL INFO Channel 23/0 : 0[0] -> 1[1] via P2P/CUMEM
-n124-167-226:398106:399036 [6] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
-n124-167-226:398107:399037 [7] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
-n124-167-226:398100:399041 [0] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
-n124-167-226:398105:399034 [5] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
-n124-167-226:398104:399038 [4] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
-n124-167-226:398102:399035 [2] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
-n124-167-226:398101:399040 [1] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
-n124-167-226:398103:399039 [3] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
 Parameter Offload - Persistent parameters statistics: param_count = 217, numel = 5026816
-  0% 0/2 [00:00<?, ?it/s]ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
-ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
-ERROR in forward: Boolean value of Tensor with more than one value is ambiguousERROR in forward: Boolean value of Tensor with more than one value is ambiguous
+  0% 0/2 [00:00<?, ?it/s]past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
 
-ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
-ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
-ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
-ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
-ERROR: Boolean value of Tensor with more than one value is ambiguous
-Traceback (most recent call last):
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
-Traceback (most recent call last):
-Traceback (most recent call last):
-Traceback (most recent call last):
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
-Traceback (most recent call last):
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
-Traceback (most recent call last):
-  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
-    trimmed_cache.update(
-  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
-    while len(self.layers) <= layer_idx:
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+
+ 50% 1/2 [00:21<00:21, 21.54s/it]past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+{'train_runtime': 28.4954, 'train_samples_per_second': 0.561, 'train_steps_per_second': 0.07, 'train_loss': 3.9140625, 'epoch': 0.29}
+100% 2/2 [00:27<00:00, 13.61s/it]
+SUCCESS: batch_size=1
+n124-167-226:402140:402994 [7] NCCL INFO [Service thread] Connection closed by localRank 0
+n124-167-226:402140:403045 [7] NCCL INFO [Service thread] Connection closed by localRank 0
+n124-167-226:402134:402984 [1] NCCL INFO [Service thread] Connection closed by localRank 0
+n124-167-226:402134:403039 [1] NCCL INFO [Service thread] Connection closed by localRank 0
+n124-167-226:402137:402988 [0] NCCL INFO [Service thread] Connection closed by localRank 5
+n124-167-226:402139:402990 [6] NCCL INFO [Service thread] Connection closed by localRank 5
+n124-167-226:402137:403043 [0] NCCL INFO [Service thread] Connection closed by localRank 5
+n124-167-226:402139:403047 [6] NCCL INFO [Service thread] Connection closed by localRank 5
+n124-167-226:402136:402986 [0] NCCL INFO [Service thread] Connection closed by localRank 4
+n124-167-226:402136:403037 [0] NCCL INFO [Service thread] Connection closed by localRank 4
+[rank1]:[W516 12:24:33.942060283 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=95, addr=[localhost]:50752, remote=[localhost]:11470): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLoca
