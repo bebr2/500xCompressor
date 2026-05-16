@@ -58,7 +58,7 @@ class ICAEL3QA(nn.Module):
         self.device = device
         self.hidden_size = hidden_size
 
-    def forward(self, input_ids, labels):
+    def forward(self, input_ids, labels=None, **kwargs):
         ####################
         # Encoder - llama+lora
         ####################

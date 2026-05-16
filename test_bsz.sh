@@ -27,14 +27,14 @@ while [ $LOW -le $HIGH ]; do
     echo ""
     echo "[Range $LOW-$HIGH] Testing batch_size=$MID..."
 
-    # Run test in fresh process
-    # Exit code 0 = success, non-zero = failed
+    # Run test in fresh process, capture all output
+    LOG_FILE="/tmp/bsz_test_$MID.log"
     deepspeed --num_gpus=$NUM_GPUS --master_port=$MASTER_PORT test_bsz.py \
         --model_path "$MODEL_PATH" \
         --batch_size $MID \
         --num_mem 256 \
         --max_length 2048 \
-        > /tmp/bsz_test_$MID.log 2>&1
+        > "$LOG_FILE" 2>&1
 
     RESULT=$?
 
@@ -44,8 +44,10 @@ while [ $LOW -le $HIGH ]; do
         LOW=$((MID + 1))
     else
         echo "  FAILED (exit code $RESULT)"
-        # 打印最后几行错误
-        tail -5 /tmp/bsz_test_$MID.log
+        echo ""
+        echo "========== FULL ERROR LOG =========="
+        cat "$LOG_FILE"
+        echo "========== END ERROR LOG =========="
         HIGH=$((MID - 1))
     fi
 
