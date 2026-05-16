@@ -98,7 +98,7 @@ class L3LoraL3QA(nn.Module):
         memory_tok_embeddings = self.memory_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1).to(self.device)
         # encoder input: context tokens + compressed tokens
         encoder_input_embeddings = torch.cat((text_tok_embeddings, memory_tok_embeddings), dim=1)
-        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
+        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings, use_cache=True)
         # K V values for the encoder output
         past_key_values = encoder_output.past_key_values
 

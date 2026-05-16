@@ -122,7 +122,7 @@ class L3LoraL3(nn.Module):
 
         # encoder input: original context + compressed tokens
         encoder_input_embeddings = torch.cat((text_tok_embeddings, memory_tok_embeddings), dim=1)
-        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
+        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings, use_cache=True)
 
         # K V values for the encoder output
         past_key_values = encoder_output.past_key_values
