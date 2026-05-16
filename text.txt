@@ -1,8 +1,5 @@
-24-167-226:424877:425716 [1] NCCL INFO Init timings - ncclCommInitRankConfig: rank 1 nranks 8 total 3.19 (kernels 0.52, alloc 1.71, bootstrap 0.01, allgathers 0.04, topo 0.81, graphs 0.01, connections 0.07, rest 0.02)
-ERROR: 2 validation errors for DeepSpeedZeroConfig
-partition_activations
-  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
-    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
-contiguous_memory_optimization
-  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
-    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+encoder_output type: <class 'transformers.modeling_outputs.CausalLMOutputWithPast'>
+encoder_output keys: odict_keys(['logits'])
+past_key_values type: None
+ERROR: past_key_values is None! Check if use_cache is properly passed.
+encoder_output type: <class 'transformers.modeling_outputs.CausalLMOutputWithPast'>encoder_output type: <class 'transformers.modeling_outputs.CausalLMOutputWithPast'>
