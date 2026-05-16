@@ -167,6 +167,10 @@ def parse_args():
     parser.add_argument("--resume_from_checkpoint", type=str, default=None,
                         help="Path to checkpoint to resume from")
 
+    # DeepSpeed local_rank (passed automatically by deepspeed launcher)
+    parser.add_argument("--local_rank", type=int, default=0,
+                        help="Local rank for distributed training (passed by DeepSpeed)")
+
     return parser.parse_args()
 
 
