@@ -88,6 +88,12 @@ def main():
         )
         model.config = model.llama.config
 
+        # 启用 gradient checkpointing 减少内存
+        if hasattr(model.llama, 'gradient_checkpointing_enable'):
+            model.llama.gradient_checkpointing_enable()
+        elif hasattr(model.llama, 'base_model') and hasattr(model.llama.base_model, 'gradient_checkpointing_enable'):
+            model.llama.base_model.gradient_checkpointing_enable()
+
         create_ds_config(os.path.join(temp_dir, "ds.json"), model.hidden_size)
 
         dataset = DummyDataset(args.max_length, tokenizer.eos_token_id)
@@ -101,7 +107,6 @@ def main():
             report_to="none",
             bf16=True,
             dataloader_num_workers=0,
-            gradient_checkpointing=True,  # 启用gradient checkpointing减少内存
         )
 
         trainer = Trainer(model=model, args=training_args, train_dataset=dataset)
