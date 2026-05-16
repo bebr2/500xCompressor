@@ -1,5 +1,133 @@
-encoder_output type: <class 'transformers.modeling_outputs.CausalLMOutputWithPast'>
-encoder_output keys: odict_keys(['logits'])
-past_key_values type: None
-ERROR: past_key_values is None! Check if use_cache is properly passed.
-encoder_output type: <class 'transformers.modeling_outputs.CausalLMOutputWithPast'>encoder_output type: <class 'transformers.modeling_outputs.CausalLMOutputWithPast'>
+                               --train_text_path TRAIN_TEXT_PATH
+                               --test_text_path TEST_TEXT_PATH --output_dir
+                               OUTPUT_DIR --logging_dir LOGGING_DIR
+                               [--project_name PROJECT_NAME]
+                               --deepspeed_config DEEPSPEED_CONFIG
+                               [--num_train_epochs NUM_TRAIN_EPOCHS]
+                               [--per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE]
+                               [--per_device_eval_batch_size PER_DEVICE_EVAL_BATCH_SIZE]
+                               [--learning_rate LEARNING_RATE]
+                               [--save_steps SAVE_STEPS]
+                               [--eval_steps EVAL_STEPS]
+                               [--warmup_steps WARMUP_STEPS]
+                               [--save_total_limit SAVE_TOTAL_LIMIT]
+                               [--eval_accumulation_steps EVAL_ACCUMULATION_STEPS]
+                               [--lora_r LORA_R] [--lora_alpha LORA_ALPHA]
+                               [--lora_dropout LORA_DROPOUT]
+                               [--target_modules TARGET_MODULES [TARGET_MODULES ...]]
+                               [--resume_from_checkpoint RESUME_FROM_CHECKPOINT]
+train_500xCompressor.py: error: unrecognized arguments: --local_rank=5
+usage: train_500xCompressor.py [-h] --model_path MODEL_PATH
+                               [--num_mem NUM_MEM] [--max_length MAX_LENGTH]
+                               --train_text_path TRAIN_TEXT_PATH
+                               --test_text_path TEST_TEXT_PATH --output_dir
+                               OUTPUT_DIR --logging_dir LOGGING_DIR
+                               [--project_name PROJECT_NAME]
+                               --deepspeed_config DEEPSPEED_CONFIG
+                               [--num_train_epochs NUM_TRAIN_EPOCHS]
+                               [--per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE]
+                               [--per_device_eval_batch_size PER_DEVICE_EVAL_BATCH_SIZE]
+                               [--learning_rate LEARNING_RATE]
+                               [--save_steps SAVE_STEPS]
+                               [--eval_steps EVAL_STEPS]
+                               [--warmup_steps WARMUP_STEPS]
+                               [--save_total_limit SAVE_TOTAL_LIMIT]
+                               [--eval_accumulation_steps EVAL_ACCUMULATION_STEPS]
+                               [--lora_r LORA_R] [--lora_alpha LORA_ALPHA]
+                               [--lora_dropout LORA_DROPOUT]
+                               [--target_modules TARGET_MODULES [TARGET_MODULES ...]]
+                               [--resume_from_checkpoint RESUME_FROM_CHECKPOINT]
+train_500xCompressor.py: error: unrecognized arguments: --local_rank=4
+usage: train_500xCompressor.py [-h] --model_path MODEL_PATH
+                               [--num_mem NUM_MEM] [--max_length MAX_LENGTH]
+                               --train_text_path TRAIN_TEXT_PATH
+                               --test_text_path TEST_TEXT_PATH --output_dir
+                               OUTPUT_DIR --logging_dir LOGGING_DIR
+                               [--project_name PROJECT_NAME]
+                               --deepspeed_config DEEPSPEED_CONFIG
+                               [--num_train_epochs NUM_TRAIN_EPOCHS]
+                               [--per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE]
+                               [--per_device_eval_batch_size PER_DEVICE_EVAL_BATCH_SIZE]
+                               [--learning_rate LEARNING_RATE]
+                               [--save_steps SAVE_STEPS]
+                               [--eval_steps EVAL_STEPS]
+                               [--warmup_steps WARMUP_STEPS]
+                               [--save_total_limit SAVE_TOTAL_LIMIT]
+                               [--eval_accumulation_steps EVAL_ACCUMULATION_STEPS]
+                               [--lora_r LORA_R] [--lora_alpha LORA_ALPHA]
+                               [--lora_dropout LORA_DROPOUT]
+                               [--target_modules TARGET_MODULES [TARGET_MODULES ...]]
+                               [--resume_from_checkpoint RESUME_FROM_CHECKPOINT]
+train_500xCompressor.py: error: unrecognized arguments: --local_rank=1
+usage: train_500xCompressor.py [-h] --model_path MODEL_PATH
+                               [--num_mem NUM_MEM] [--max_length MAX_LENGTH]
+                               --train_text_path TRAIN_TEXT_PATH
+                               --test_text_path TEST_TEXT_PATH --output_dir
+                               OUTPUT_DIR --logging_dir LOGGING_DIR
+                               [--project_name PROJECT_NAME]
+                               --deepspeed_config DEEPSPEED_CONFIG
+                               [--num_train_epochs NUM_TRAIN_EPOCHS]
+                               [--per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE]
+                               [--per_device_eval_batch_size PER_DEVICE_EVAL_BATCH_SIZE]
+                               [--learning_rate LEARNING_RATE]
+                               [--save_steps SAVE_STEPS]
+                               [--eval_steps EVAL_STEPS]
+                               [--warmup_steps WARMUP_STEPS]
+                               [--save_total_limit SAVE_TOTAL_LIMIT]
+                               [--eval_accumulation_steps EVAL_ACCUMULATION_STEPS]
+                               [--lora_r LORA_R] [--lora_alpha LORA_ALPHA]
+                               [--lora_dropout LORA_DROPOUT]
+                               [--target_modules TARGET_MODULES [TARGET_MODULES ...]]
+                               [--resume_from_checkpoint RESUME_FROM_CHECKPOINT]
+train_500xCompressor.py: error: unrecognized arguments: --local_rank=3
+usage: train_500xCompressor.py [-h] --model_path MODEL_PATH
+                               [--num_mem NUM_MEM] [--max_length MAX_LENGTH]
+                               --train_text_path TRAIN_TEXT_PATH
+                               --test_text_path TEST_TEXT_PATH --output_dir
+                               OUTPUT_DIR --logging_dir LOGGING_DIR
+                               [--project_name PROJECT_NAME]
+                               --deepspeed_config DEEPSPEED_CONFIG
+                               [--num_train_epochs NUM_TRAIN_EPOCHS]
+                               [--per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE]
+                               [--per_device_eval_batch_size PER_DEVICE_EVAL_BATCH_SIZE]
+                               [--learning_rate LEARNING_RATE]
+                               [--save_steps SAVE_STEPS]
+                               [--eval_steps EVAL_STEPS]
+                               [--warmup_steps WARMUP_STEPS]
+                               [--save_total_limit SAVE_TOTAL_LIMIT]
+                               [--eval_accumulation_steps EVAL_ACCUMULATION_STEPS]
+                               [--lora_r LORA_R] [--lora_alpha LORA_ALPHA]
+                               [--lora_dropout LORA_DROPOUT]
+                               [--target_modules TARGET_MODULES [TARGET_MODULES ...]]
+                               [--resume_from_checkpoint RESUME_FROM_CHECKPOINT]
+train_500xCompressor.py: error: unrecognized arguments: --local_rank=6
+usage: train_500xCompressor.py [-h] --model_path MODEL_PATH
+                               [--num_mem NUM_MEM] [--max_length MAX_LENGTH]
+                               --train_text_path TRAIN_TEXT_PATH
+                               --test_text_path TEST_TEXT_PATH --output_dir
+                               OUTPUT_DIR --logging_dir LOGGING_DIR
+                               [--project_name PROJECT_NAME]
+                               --deepspeed_config DEEPSPEED_CONFIG
+                               [--num_train_epochs NUM_TRAIN_EPOCHS]
+                               [--per_device_train_batch_size PER_DEVICE_TRAIN_BATCH_SIZE]
+                               [--per_device_eval_batch_size PER_DEVICE_EVAL_BATCH_SIZE]
+                               [--learning_rate LEARNING_RATE]
+                               [--save_steps SAVE_STEPS]
+                               [--eval_steps EVAL_STEPS]
+                               [--warmup_steps WARMUP_STEPS]
+                               [--save_total_limit SAVE_TOTAL_LIMIT]
+                               [--eval_accumulation_steps EVAL_ACCUMULATION_STEPS]
+                               [--lora_r LORA_R] [--lora_alpha LORA_ALPHA]
+                               [--lora_dropout LORA_DROPOUT]
+                               [--target_modules TARGET_MODULES [TARGET_MODULES ...]]
+                               [--resume_from_checkpoint RESUME_FROM_CHECKPOINT]
+train_500xCompressor.py: error: unrecognized arguments: --local_rank=7
+[2026-05-16 14:20:29,046] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437118
+[2026-05-16 14:20:29,048] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437119
+[2026-05-16 14:20:29,048] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437120
+[2026-05-16 14:20:29,049] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437121
+[2026-05-16 14:20:29,050] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437122
+[2026-05-16 14:20:29,051] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437123
+[2026-05-16 14:20:29,052] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437124
+[2026-05-16 14:20:29,053] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 437125
+[2026-05-16 14:20:29,053] [ERROR] [launch.py:341:sigkill_handler] ['/usr/local/bin/python3.11', '-u', 'train_500xCompressor.py', '--local_rank=7', '--model_path', '/mnt/hdfs/wangchangyue/LLM/Qwen3-8B', '--num_mem', '256', '--max_length', '1024', '--train_text_path', '/mnt/hdfs/wangchangyue/500xCompressor/data/train.txt', '--test_text_path', '/mnt/hdfs/wangchangyue/500xCompressor/data/test.txt', '--output_dir', '/mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain', '--logging_dir', '/mnt/hdfs/wangchangyue/500xCompressor/logs/500xCompressor_pretrain', '--project_name', '500xCompressor-pretraining', '--deepspeed_config', '/mnt/hdfs/wangchangyue/500xCompressor/codes/deepspeed_configurations.json', '--num_train_epochs', '3', '--per_device_train

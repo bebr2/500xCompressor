@@ -4,9 +4,9 @@
 
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes
 
-MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/phi-4"
+MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/Qwen3-8B"
 START_BSZ=1
-MAX_BSZ=2
+MAX_BSZ=4
 NUM_GPUS=8
 MASTER_PORT=11470
 
@@ -33,7 +33,7 @@ while [ $LOW -le $HIGH ]; do
         --model_path "$MODEL_PATH" \
         --batch_size $MID \
         --num_mem 256 \
-        --max_length 2048 \
+        --max_length 1024 \
         > "$LOG_FILE" 2>&1
 
     RESULT=$?
