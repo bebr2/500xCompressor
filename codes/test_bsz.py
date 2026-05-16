@@ -75,20 +75,30 @@ def create_deepspeed_config(output_path, batch_size, gradient_accumulation_steps
 
 class DummyDataset(torch.utils.data.Dataset):
     """Dummy dataset for batch size testing."""
-    def __init__(self, max_length, num_mem):
+    def __init__(self, max_length, num_mem, mode="pretrain", max_qa_len=256):
         self.max_length = max_length
         self.num_mem = num_mem
+        self.mode = mode
+        self.max_qa_len = max_qa_len
         self.length = 100
 
     def __len__(self):
         return self.length
 
     def __getitem__(self, _idx):
-        input_ids = torch.randint(0, 1000, (self.max_length,))
-        # Labels: input tokens + EOS token
-        labels = torch.full((self.max_length + 1,), -100, dtype=torch.long)
-        labels[:self.max_length] = input_ids
-        return {"input_ids": input_ids, "labels": labels}
+        if self.mode == "pretrain":
+            input_ids = torch.randint(0, 1000, (self.max_length,))
+            # Labels: input tokens + EOS token
+            labels = torch.full((self.max_length + 1,), -100, dtype=torch.long)
+            labels[:self.max_length] = input_ids
+            return {"input_ids": input_ids, "labels": labels}
+        else:
+            # QA mode: context + question/answer
+            total_len = self.max_length + self.max_qa_len
+            input_ids = torch.randint(0, 1000, (total_len,))
+            # Labels for QA part only
+            labels = torch.full((self.max_qa_len,), -100, dtype=torch.long)
+            return {"input_ids": input_ids, "labels": labels}
 
 class TestModel(nn.Module):
     """Wrapper model that includes memory embeddings."""
@@ -161,7 +171,7 @@ def test_batch_size(args, batch_size, rank, local_rank, world_size):
     model = TestModel(base_model, args.num_mem, hidden_size)
 
     # Create dataset
-    dataset = DummyDataset(args.max_length, args.num_mem)
+    dataset = DummyDataset(args.max_length, args.num_mem, mode=args.test_mode, max_qa_len=args.max_qa_len if hasattr(args, 'max_qa_len') else 256)
 
     # Training arguments
     training_args = TrainingArguments(
@@ -240,7 +250,10 @@ def find_max_batch_size(args, rank, local_rank, world_size):
         print(f"\n{'='*60}")
         print(f"Finding max batch size with DeepSpeed ZeRO-3")
         print(f"  GPUs: {world_size}")
+        print(f"  Mode: {args.test_mode}")
         print(f"  Max length: {args.max_length}")
+        if args.test_mode == "qa":
+            print(f"  Max QA length: {args.max_qa_len}")
         print(f"  Num mem tokens: {args.num_mem}")
         print(f"  Search range: {args.start_bsz} - {args.max_bsz_limit}")
         print(f"{'='*60}")
@@ -279,6 +292,8 @@ def parse_args():
     parser.add_argument("--model_path", type=str, required=True)
     parser.add_argument("--num_mem", type=int, default=256)
     parser.add_argument("--max_length", type=int, default=2048)
+    parser.add_argument("--max_qa_len", type=int, default=256,
+                        help="Max QA length for qa mode testing")
 
     parser.add_argument("--lora_r", type=int, default=64)
     parser.add_argument("--lora_alpha", type=int, default=32)
@@ -288,6 +303,9 @@ def parse_args():
 
     parser.add_argument("--start_bsz", type=int, default=1)
     parser.add_argument("--max_bsz_limit", type=int, default=64)
+    parser.add_argument("--test_mode", type=str, default="pretrain",
+                        choices=["pretrain", "qa"],
+                        help="Test mode: pretrain or qa finetuning")
 
     parser.add_argument("--local_rank", type=int, default=-1)
 
@@ -308,7 +326,7 @@ if __name__ == "__main__":
 
     if rank == 0:
         print(f"\n{'='*60}")
-        print(f"RESULTS:")
+        print(f"RESULTS ({args.test_mode} mode):")
         print(f"  per_device_train_batch_size = {max_bsz}")
         print(f"  Total batch size (8 GPUs) = {max_bsz * world_size}")
         print(f"{'='*60}")
