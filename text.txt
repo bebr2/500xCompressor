@@ -1,49 +1,25 @@
 Parameter Offload - Persistent parameters statistics: param_count = 217, numel = 5026816
-  0% 0/2 [00:00<?, ?it/s]past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
+  0%|          | 0/2 [00:00<?, ?it/s]past_key_values type: DynamicCache
+past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']past_key_values type: DynamicCache
 
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
+past_key_values type: DynamicCacheUsing to_legacy_cache fallback
 
- 50% 1/2 [00:21<00:21, 21.54s/it]past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-past_key_values type: <class 'transformers.cache_utils.DynamicCache'>
-past_key_values attrs: ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__']
-{'train_runtime': 28.4954, 'train_samples_per_second': 0.561, 'train_steps_per_second': 0.07, 'train_loss': 3.9140625, 'epoch': 0.29}
-100% 2/2 [00:27<00:00, 13.61s/it]
-SUCCESS: batch_size=1
-n124-167-226:402140:402994 [7] NCCL INFO [Service thread] Connection closed by localRank 0
-n124-167-226:402140:403045 [7] NCCL INFO [Service thread] Connection closed by localRank 0
-n124-167-226:402134:402984 [1] NCCL INFO [Service thread] Connection closed by localRank 0
-n124-167-226:402134:403039 [1] NCCL INFO [Service thread] Connection closed by localRank 0
-n124-167-226:402137:402988 [0] NCCL INFO [Service thread] Connection closed by localRank 5
-n124-167-226:402139:402990 [6] NCCL INFO [Service thread] Connection closed by localRank 5
-n124-167-226:402137:403043 [0] NCCL INFO [Service thread] Connection closed by localRank 5
-n124-167-226:402139:403047 [6] NCCL INFO [Service thread] Connection closed by localRank 5
-n124-167-226:402136:402986 [0] NCCL INFO [Service thread] Connection closed by localRank 4
-n124-167-226:402136:403037 [0] NCCL INFO [Service thread] Connection closed by localRank 4
-[rank1]:[W516 12:24:33.942060283 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=95, addr=[localhost]:50752, remote=[localhost]:11470): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
-Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLoca
+past_key_values type: DynamicCachepast_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
+
+past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']Using to_legacy_cache fallback
+
+Using to_legacy_cache fallback
+past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
+Using to_legacy_cache fallback
+past_key_values type: DynamicCache
+past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
+Using to_legacy_cache fallback
+past_key_values type: DynamicCache
+past_key_values type: DynamicCache
+past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
+Using to_legacy_cache fallback
+past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
+Using to_legacy_cache fallback
+past_key_values type: DynamicCache
+past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
+Using to_legacy_cache fallback
