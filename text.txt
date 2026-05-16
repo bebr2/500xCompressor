@@ -1,10 +1,24 @@
-up` to mute this warning.
-  warnings.warn(  # warn only once
-  0% 0/3 [00:00<?, ?it/s]Batch size 2 OOM - Memory: max=75.54GB
-  0% 0/3 [00:03<?, ?it/s]
-
-============================================================
-Maximum batch size for pretrain: 0
-Recommended per_device_train_batch_size: 0
-Effective total batch size (with 8 GPUs): 0
-============================================================
+rank6]:     raise ValueError(
+[rank6]: ValueError: The model's config file has neither `hidden_size` nor `hidden_sizes` entry, therefore it's not possible to automatically fill out the following `auto` entries in the DeepSpeed config file: ['zero_optimization.reduce_bucket_size', 'zero_optimization.stage3_prefetch_bucket_size', 'zero_optimization.stage3_param_persistence_threshold']. You can fix that by replacing `auto` values for these keys with an integer value of your choice.
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 325, in <module>
+[rank7]:     max_bsz = find_max_batch_size(args, rank, local_rank, world_size)
+[rank7]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 271, in find_max_batch_size
+[rank7]:     success = test_batch_size(args, mid, rank, local_rank, world_size)
+[rank7]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 245, in test_batch_size
+[rank7]:     raise e
+[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 199, in test_batch_size
+[rank7]:     trainer.train()
+[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/trainer.py", line 2325, in train
+[rank7]:     return inner_training_loop(
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/trainer.py", line 2429, in _inner_training_loop
+[rank7]:     self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
+[rank7]:                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/integrations/deepspeed.py", line 447, in deepspeed_init
+[rank7]:     hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
+[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/integrations/deepspeed.py", line 238, in trainer_config_finalize
+[rank7]:     raise ValueError(
+[rank7]: ValueError: The model's config file has neither `hidden_size` nor `hidden_sizes` entry, therefore it's not possible to automatically fill out the following `auto` entries in the DeepSpeed config file: ['zero_optimization.reduce_bucket_size', 'zero_optimization.stage3_prefetch_bucket_size', 'zero_optimization.stage3_param_persistence_threshold']. You can fix that by replacing `auto` values for these keys with an integer value of your choice.
