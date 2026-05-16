@@ -60,6 +60,7 @@ if __name__ == "__main__":
         print("""Please specify the mode: "regeneration" or "qa"."""")
         exit(1)
 
+    # LoRA config
     lora_config = LoraConfig(
         r=64,
         lora_alpha=32,

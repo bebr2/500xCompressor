@@ -135,11 +135,14 @@ def test_with_deepspeed_trainer(args, batch_size, mode, rank, local_rank, _world
     from peft import get_peft_model
     llama = get_peft_model(llama, lora_config)
 
-    # Enable gradients for LoRA params only
+    # Enable gradients for LoRA params only, ensure dtype consistency for DeepSpeed
     for name, param in llama.named_parameters():
         param.requires_grad = False
         if 'lora' in name:
             param.requires_grad = True
+            # Convert LoRA params to bfloat16 to match base model dtype
+            if param.dtype != torch.bfloat16:
+                param.data = param.data.to(torch.bfloat16)
 
     # Add memory embeddings
     memory_embeddings = nn.Parameter(

@@ -41,6 +41,9 @@ class ICAEL3QA(nn.Module):
             param.requires_grad = False
             if 'lora' in name:
                 param.requires_grad = True
+                # Convert LoRA params to bfloat16 to match base model dtype
+                if param.dtype != torch.bfloat16:
+                    param.data = param.data.to(torch.bfloat16)
         print(f"Total parameters of llama: {sum(p.numel() for p in self.llama.parameters())}")
         self.tokenizer = AutoTokenizer.from_pretrained(llama_path, trust_remote_code=True)
         print("tokenizer loaded.")

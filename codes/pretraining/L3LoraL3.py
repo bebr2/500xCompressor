@@ -35,11 +35,14 @@ class L3LoraL3(nn.Module):
 
         # add LoRA parameters to the LLM
         self.llama = get_peft_model(llama, lora_config)
-        # only LoRA parameters are trainable
+        # only LoRA parameters are trainable, ensure dtype consistency for DeepSpeed
         for name, param in self.llama.named_parameters():
             param.requires_grad = False
             if 'lora' in name:
                 param.requires_grad = True
+                # Convert LoRA params to bfloat16 to match base model dtype
+                if param.dtype != torch.bfloat16:
+                    param.data = param.data.to(torch.bfloat16)
         print(f"Total parameters of llama: {sum(p.numel() for p in self.llama.parameters())}")
         # load the tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(llama_path, trust_remote_code=True)
