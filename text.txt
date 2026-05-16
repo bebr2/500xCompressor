@@ -1,12 +1,10 @@
-[rank5]:     self.optimizer = self._configure_zero_optimizer(basic_optimizer)
-[rank5]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 1848, in _configure_zero_optimizer
-[rank5]:     optimizer = Stage3ZeroOptimizer(
-[rank5]:                 ^^^^^^^^^^^^^^^^^^^^
-[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/zero/stage3.py", line 381, in __init__
-[rank5]:     self._create_fp16_partitions_with_defragmentation(self.trainable_param_groups)
-[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/zero/stage3.py", line 761, in _create_fp16_partitions_with_defragmentation
-[rank5]:     self.lp_param_buffer = __class__.defragment(parameter_partitions)
-[rank5]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank5]:   File "/home/tiger/.local/lib/python3.11/site-packages/deepspeed/runtime/zero/stage3.py", line 604, in defragment
-[rank5]:     assert len(set(t.dtype for t in tensors)) == 1
+up` to mute this warning.
+  warnings.warn(  # warn only once
+  0% 0/3 [00:00<?, ?it/s]Batch size 2 OOM - Memory: max=75.54GB
+  0% 0/3 [00:03<?, ?it/s]
+
+============================================================
+Maximum batch size for pretrain: 0
+Recommended per_device_train_batch_size: 0
+Effective total batch size (with 8 GPUs): 0
+============================================================
