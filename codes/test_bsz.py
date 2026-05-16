@@ -50,7 +50,7 @@ def setup_distributed():
 
     return rank, local_rank, world_size
 
-def create_deepspeed_config(output_path, batch_size):
+def create_deepspeed_config(output_path):
     """Create a minimal DeepSpeed config for testing."""
     config = {
         "zero_optimization": {
@@ -68,8 +68,8 @@ def create_deepspeed_config(output_path, batch_size):
         "gradient_accumulation_steps": 1,
         "gradient_clipping": "auto",
         "steps_per_print": 2000,
-        "train_batch_size": batch_size,
-        "train_micro_batch_size_per_gpu": batch_size,
+        "train_batch_size": "auto",
+        "train_micro_batch_size_per_gpu": "auto",
         "wall_clock_breakdown": False
     }
 
@@ -109,7 +109,7 @@ def test_with_deepspeed_trainer(args, batch_size, mode, rank, local_rank, _world
 
     # Create temp deepspeed config
     ds_config_path = "/tmp/test_deepspeed_config.json"
-    create_deepspeed_config(ds_config_path, batch_size)
+    create_deepspeed_config(ds_config_path)
 
     # Load model
     if rank == 0:
