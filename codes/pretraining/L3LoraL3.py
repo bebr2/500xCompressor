@@ -64,14 +64,8 @@ class L3LoraL3(nn.Module):
         text_tok_embeddings = self.llama.get_input_embeddings()(text_tokens).to(self.device)
         memory_tok_embeddings = self.memory_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1).to(self.device)
         encoder_input_embeddings = torch.cat((text_tok_embeddings, memory_tok_embeddings), dim=1)
-        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings, use_cache=True, return_dict=True)
-        print(f"encoder_output type: {type(encoder_output)}")
-        print(f"encoder_output keys: {encoder_output.keys() if hasattr(encoder_output, 'keys') else 'N/A'}")
+        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings, use_cache=True)
         past_key_values = encoder_output.past_key_values
-        print(f"past_key_values type: {type(past_key_values) if past_key_values is not None else 'None'}")
-
-        if past_key_values is None:
-            raise ValueError("past_key_values is None! Check if use_cache is properly passed.")
 
         # DynamicCache 处理：转成 legacy tuple，切片，再转回 DynamicCache
         legacy_cache = past_key_values.to_legacy_cache()

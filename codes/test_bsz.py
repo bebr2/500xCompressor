@@ -50,11 +50,7 @@ def create_ds_config(path, hidden_size):
         "gradient_accumulation_steps": 1,
         "train_batch_size": "auto",
         "train_micro_batch_size_per_gpu": "auto",
-        "bf16": {"enabled": True},
-        "activation_checkpointing": {
-            "partition_activations": True,
-            "contiguous_memory_optimization": True
-        }
+        "bf16": {"enabled": True}
     }
     with open(path, 'w') as f:
         json.dump(config, f)
@@ -82,12 +78,8 @@ def main():
             lora_config=lora_config, num_mem=args.num_mem, device=device
         )
         model.config = model.llama.config
-
-        # 启用 gradient checkpointing 减少内存
-        if hasattr(model.llama, 'gradient_checkpointing_enable'):
-            model.llama.gradient_checkpointing_enable()
-        elif hasattr(model.llama, 'base_model') and hasattr(model.llama.base_model, 'gradient_checkpointing_enable'):
-            model.llama.base_model.gradient_checkpointing_enable()
+        # 注意：gradient checkpointing 和 use_cache 不能同时使用
+        # 所以这里不启用 gradient_checkpointing
 
         create_ds_config(os.path.join(temp_dir, "ds.json"), model.hidden_size)
 
