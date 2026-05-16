@@ -135,6 +135,9 @@ def parse_args():
                         help="LoRA alpha")
     parser.add_argument("--lora_dropout", type=float, default=0.05,
                         help="LoRA dropout")
+    parser.add_argument("--target_modules", type=str, nargs="+",
+                        default=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+                        help="Target modules for LoRA")
 
     # Resume training
     parser.add_argument("--resume_from_checkpoint", type=str, default=None,
@@ -161,7 +164,8 @@ if __name__ == "__main__":
         lora_alpha=args.lora_alpha,
         lora_dropout=args.lora_dropout,
         bias="none",
-        task_type="CAUSAL_LM"
+        task_type="CAUSAL_LM",
+        target_modules=args.target_modules
     )
 
     wandb.init(project=args.project_name, dir="/tmp/wandb")

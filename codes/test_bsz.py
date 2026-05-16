@@ -128,7 +128,8 @@ def test_with_deepspeed_trainer(args, batch_size, mode, rank, local_rank, _world
         lora_alpha=args.lora_alpha,
         lora_dropout=args.lora_dropout,
         bias="none",
-        task_type="CAUSAL_LM"
+        task_type="CAUSAL_LM",
+        target_modules=args.target_modules
     )
 
     from peft import get_peft_model
@@ -268,6 +269,9 @@ def parse_args():
     parser.add_argument("--lora_r", type=int, default=64)
     parser.add_argument("--lora_alpha", type=int, default=32)
     parser.add_argument("--lora_dropout", type=float, default=0.05)
+    parser.add_argument("--target_modules", type=str, nargs="+",
+                        default=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+                        help="Target modules for LoRA")
 
     # Search arguments
     parser.add_argument("--start_bsz", type=int, default=1)
