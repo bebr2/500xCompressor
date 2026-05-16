@@ -68,7 +68,7 @@ class L3LoraL3(nn.Module):
             self.bos_token_id = self.tokenizer.eos_token_id
             print(f"Model has no BOS token, using EOS token ID as fallback: {self.bos_token_id}")
 
-    def forward(self, input_ids, labels):
+    def forward(self, input_ids, labels=None, **kwargs):
         ####################
         # Encoder - llama+lora
         ####################
@@ -78,17 +78,28 @@ class L3LoraL3(nn.Module):
         target_tokens = labels
         text_tok_embeddings = self.llama.get_input_embeddings()(text_tokens).to(self.device)
         # compressed tokens
+        memory_tok_embeddings = self.llama.get_input_embeddings()(text_tokens)  # placeholder for shape
         memory_tok_embeddings = self.memory_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1).to(self.device)
         # encoder input: text tokens + compressed tokens
         encoder_input_embeddings = torch.cat((text_tok_embeddings, memory_tok_embeddings), dim=1)
-        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
+        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings, use_cache=True)
         # get the K V values for the encoder output
         past_key_values = encoder_output.past_key_values
-        # get the K V values for the compressed tokens
-        trimmed_past_key_values = tuple(
-            (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
-            for layer_key, layer_value in past_key_values
-        )
+
+        # Handle both tuple and Cache object formats
+        if hasattr(past_key_values, 'get_seq_length'):
+            # New transformers Cache format - slice using to_legacy_cache first
+            legacy_cache = past_key_values.to_legacy_cache()
+            trimmed_past_key_values = tuple(
+                (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
+                for layer_key, layer_value in legacy_cache
+            )
+        else:
+            # Old tuple format
+            trimmed_past_key_values = tuple(
+                (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
+                for layer_key, layer_value in past_key_values
+            )
 
         ####################
         # Decoder - llama
