@@ -67,23 +67,26 @@ class L3LoraL3(nn.Module):
         encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
         past_key_values = encoder_output.past_key_values
 
-        # 用 DynamicCache 构建 trimmed cache，兼容新版 transformers
+        # 构建 DynamicCache，只保留最后 num_mem 个位置的 KV
         trimmed_cache = DynamicCache()
-        if hasattr(past_key_values, 'get_seq_length'):
-            # 已经是 Cache 对象
-            for layer_idx in range(past_key_values.get_seq_length()):
-                key, value = past_key_values[layer_idx]
-                trimmed_cache.update(layer_idx, key[:, :, -self.num_mem:, :], value[:, :, -self.num_mem:, :])
-        else:
-            # 是 tuple
-            for layer_idx, (layer_key, layer_value) in enumerate(past_key_values):
-                trimmed_cache.update(layer_idx, layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
+        num_layers = self.llama.config.num_hidden_layers
+
+        # past_key_values 是 tuple 或可索引的对象，直接按层索引
+        for layer_idx in range(num_layers):
+            kv = past_key_values[layer_idx]
+            layer_key = kv[0]  # [batch, num_heads, seq_len, head_dim]
+            layer_value = kv[1]
+            # 取最后 num_mem 个位置
+            trimmed_cache.update(
+                layer_idx,
+                layer_key[:, :, -self.num_mem:, :].contiguous(),
+                layer_value[:, :, -self.num_mem:, :].contiguous()
+            )
 
         ####################
         # Decoder - llama
         ####################
-        prompt_tokens = [self.bos_token_id]
-        prompt_tokens = torch.tensor(prompt_tokens, device=self.device)
+        prompt_tokens = torch.tensor([self.bos_token_id], device=self.device)
         prompt_tok_embeddings = self.llama.get_input_embeddings()(prompt_tokens)
         prompt_tok_embeddings = prompt_tok_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1)
 
