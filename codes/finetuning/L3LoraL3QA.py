@@ -102,11 +102,13 @@ class L3LoraL3QA(nn.Module):
         # K V values for the encoder output
         past_key_values = encoder_output.past_key_values
 
-        # DynamicCache 格式：直接切片内部 key_cache/value_cache
-        for i in range(len(past_key_values.key_cache)):
-            past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :]
-            past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :]
-        trimmed_past_key_values = past_key_values
+        # DynamicCache 处理：转成 legacy tuple，切片，再转回 DynamicCache
+        legacy_cache = past_key_values.to_legacy_cache()
+        trimmed_legacy = tuple(
+            (k[:, :, -self.num_mem:, :], v[:, :, -self.num_mem:, :])
+            for k, v in legacy_cache
+        )
+        trimmed_cache = type(past_key_values).from_legacy_cache(trimmed_legacy)
 
         ####################
         # Decoder - llama
@@ -116,7 +118,7 @@ class L3LoraL3QA(nn.Module):
         decoder_input_embeddings = qa_tok_embeddings
         # decoder is the original base LLM without LoRA parameters
         with self.llama.disable_adapter():
-            decoder_output = self.llama(inputs_embeds=decoder_input_embeddings, past_key_values=trimmed_past_key_values)
+            decoder_output = self.llama(inputs_embeds=decoder_input_embeddings, past_key_values=trimmed_cache)
         all_logits = decoder_output.logits
 
         # target tokens: answer

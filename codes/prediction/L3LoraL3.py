@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from peft import get_peft_model
-from transformers import AutoTokenizer, AutoModelForCausalLM, DynamicCache
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 def load_lora_parameters(model, lora_params_path):
     """
@@ -127,20 +127,20 @@ class L3LoraL3(nn.Module):
         # K V values for the encoder output
         past_key_values = encoder_output.past_key_values
 
-        # DynamicCache 格式：直接切片内部 key_cache/value_cache
-        for i in range(len(past_key_values.key_cache)):
-            past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :]
-            past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :]
-        trimmed_past_key_values = past_key_values
+        # DynamicCache 处理：转成 legacy tuple，切片，再转回 DynamicCache
+        legacy_cache = past_key_values.to_legacy_cache()
+        trimmed_legacy = tuple(
+            (k[:, :, -self.num_mem:, :], v[:, :, -self.num_mem:, :])
+            for k, v in legacy_cache
+        )
+        trimmed_cache = type(past_key_values).from_legacy_cache(trimmed_legacy)
 
         # save the K V values for the compressed tokens
         if output_path is not None:
-            # 保存为 tuple 格式以便兼容
-            legacy_cache = trimmed_past_key_values.to_legacy_cache() if hasattr(trimmed_past_key_values, 'to_legacy_cache') else trimmed_past_key_values
-            torch.save(legacy_cache, output_path)
+            torch.save(trimmed_legacy, output_path)
             print(f"Saved compressed past_key_values to {output_path}")
 
-        return trimmed_past_key_values
+        return trimmed_cache
 
     def predict(self, past_key_values, max_new_tokens, prompt):
         """
@@ -159,13 +159,12 @@ class L3LoraL3(nn.Module):
 
         # 如果传入的是 tuple 格式，需要转换为 DynamicCache
         if isinstance(past_key_values, tuple):
-            cache = DynamicCache()
-            for layer_idx, (key, value) in enumerate(past_key_values):
-                cache.update(layer_idx, key, value)
-            past_key_values = cache
+            # 用 transformers 的 DynamicCache.from_legacy_cache
+            from transformers import DynamicCache
+            past_key_values = DynamicCache.from_legacy_cache(past_key_values)
 
         # 获取 batch size
-        batch_size = past_key_values.key_cache[0].size(0)
+        batch_size = past_key_values.get_seq_length()
 
         # input prompt tokens:
         # BOS token for regenerating the compressed text

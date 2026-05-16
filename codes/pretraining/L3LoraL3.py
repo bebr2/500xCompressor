@@ -67,33 +67,13 @@ class L3LoraL3(nn.Module):
         encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
         past_key_values = encoder_output.past_key_values
 
-        # 打印 DynamicCache 的属性来调试
-        print(f"past_key_values type: {type(past_key_values).__name__}")
-        print(f"past_key_values attributes: {[a for a in dir(past_key_values) if not a.startswith('_')]}")
-
-        # DynamicCache: 直接操作内部缓存
-        # 新版 transformers 可能用不同属性名
-        if hasattr(past_key_values, 'key_cache'):
-            for i in range(len(past_key_values.key_cache)):
-                past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :]
-                past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :]
-        elif hasattr(past_key_values, 'self_attention_cache'):
-            # 可能是这个属性名
-            for i in range(len(past_key_values.self_attention_cache)):
-                past_key_values.self_attention_cache[i] = past_key_values.self_attention_cache[i][:, :, -self.num_mem:, :]
-        else:
-            # fallback: 用 to_legacy_cache 转 tuple 再处理
-            print("Using to_legacy_cache fallback")
-            legacy = past_key_values.to_legacy_cache()
-            trimmed = tuple(
-                (k[:, :, -self.num_mem:, :], v[:, :, -self.num_mem:, :])
-                for k, v in legacy
-            )
-            # 转回 DynamicCache - 但这个方法可能不行
-            # 直接传 tuple 让 decoder 内部处理
-            trimmed_cache = trimmed
-
-        trimmed_cache = past_key_values
+        # DynamicCache 处理：转成 legacy tuple，切片，再转回 DynamicCache
+        legacy_cache = past_key_values.to_legacy_cache()
+        trimmed_legacy = tuple(
+            (k[:, :, -self.num_mem:, :], v[:, :, -self.num_mem:, :])
+            for k, v in legacy_cache
+        )
+        trimmed_cache = type(past_key_values).from_legacy_cache(trimmed_legacy)
 
         ####################
         # Decoder - llama
