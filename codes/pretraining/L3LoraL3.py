@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, DynamicCache
 from peft import get_peft_model
 
 class L3LoraL3(nn.Module):
@@ -72,54 +72,35 @@ class L3LoraL3(nn.Module):
         ####################
         # Encoder - llama+lora
         ####################
-        # input text tokens to be compressed
         text_tokens = input_ids
-        # target tokens: input text tokens + EOS token
         target_tokens = labels
         text_tok_embeddings = self.llama.get_input_embeddings()(text_tokens).to(self.device)
-        # compressed tokens
-        memory_tok_embeddings = self.llama.get_input_embeddings()(text_tokens)  # placeholder for shape
         memory_tok_embeddings = self.memory_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1).to(self.device)
-        # encoder input: text tokens + compressed tokens
         encoder_input_embeddings = torch.cat((text_tok_embeddings, memory_tok_embeddings), dim=1)
         encoder_output = self.llama(inputs_embeds=encoder_input_embeddings, use_cache=True)
-        # get the K V values for the encoder output
         past_key_values = encoder_output.past_key_values
 
-        # Handle both tuple and Cache object formats
-        if hasattr(past_key_values, 'get_seq_length'):
-            # New transformers Cache format - slice using to_legacy_cache first
-            legacy_cache = past_key_values.to_legacy_cache()
-            trimmed_past_key_values = tuple(
-                (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
-                for layer_key, layer_value in legacy_cache
-            )
-        else:
-            # Old tuple format
-            trimmed_past_key_values = tuple(
-                (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
-                for layer_key, layer_value in past_key_values
-            )
+        # 从 tuple 或 Cache 提取最后 num_mem 个位置的 KV
+        # 构建 DynamicCache 以兼容新版 transformers
+        new_cache = DynamicCache()
+        for i, (layer_key, layer_value) in enumerate(past_key_values):
+            # 只保留 compressed tokens 部分的 KV
+            key_cache = layer_key[:, :, -self.num_mem:, :]
+            value_cache = layer_value[:, :, -self.num_mem:, :]
+            new_cache.update(i, key_cache, value_cache)
 
         ####################
         # Decoder - llama
         ####################
-        # BOS token (or fallback)
-        prompt_tokens = [self.bos_token_id]
-        prompt_tokens = torch.tensor(prompt_tokens, device=self.device)
+        prompt_tokens = torch.tensor([self.bos_token_id], device=self.device)
         prompt_tok_embeddings = self.llama.get_input_embeddings()(prompt_tokens)
         prompt_tok_embeddings = prompt_tok_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1)
 
-        # decoder input: BOS token + text tokens
         decoder_input_embeddings = torch.cat((prompt_tok_embeddings, text_tok_embeddings), dim=1)
-        # use the original LLM without LoRA parameters
         with self.llama.disable_adapter():
-            decoder_output = self.llama(inputs_embeds=decoder_input_embeddings, past_key_values=trimmed_past_key_values)
-        # logits for the decoder output
+            decoder_output = self.llama(inputs_embeds=decoder_input_embeddings, past_key_values=new_cache)
         all_logits = decoder_output.logits
 
-        # target output: text tokens + EOS token
-        # calculate the cross entropy
         loss = self.criterion(all_logits.view(-1, all_logits.size(-1)), target_tokens.view(-1))
 
         return {'loss': loss, 'logits': all_logits}
