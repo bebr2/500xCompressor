@@ -14,28 +14,33 @@ class ICAEL3(nn.Module):
     ):
         super(ICAEL3, self).__init__()
         llama = AutoModelForCausalLM.from_pretrained(
-            llama_path, 
-            cache_dir="<to be filled>", 
-            use_auth_token="<to be filled>",
+            llama_path,
             torch_dtype=torch.bfloat16,
+            trust_remote_code=True,
         )
+        # Get hidden size from model config (compatible with different models)
+        hidden_size = llama.config.hidden_size
+        print(f"Model hidden size: {hidden_size}")
+
         self.llama = get_peft_model(llama, lora_config)
         for name, param in self.llama.named_parameters():
             param.requires_grad = False
             if 'lora' in name:
                 param.requires_grad = True
         print(f"Total parameters of llama: {sum(p.numel() for p in self.llama.parameters())}")
-        self.tokenizer = AutoTokenizer.from_pretrained(llama_path, use_auth_token="<to be filled>")
-        print("llama tokenizer loaded.")
+        self.tokenizer = AutoTokenizer.from_pretrained(llama_path, trust_remote_code=True)
+        print("tokenizer loaded.")
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.max_length = max_length
         self.criterion = nn.CrossEntropyLoss(ignore_index=-100)
         self.num_mem = num_mem
-        self.memory_embeddings = nn.Parameter(torch.randn(1, num_mem, 4096, dtype=torch.bfloat16).to(device))
+        # Use dynamic hidden_size
+        self.memory_embeddings = nn.Parameter(torch.randn(1, num_mem, hidden_size, dtype=torch.bfloat16).to(device))
         self.memory_embeddings.requires_grad = True
-        self.ae_embedding = nn.Parameter(torch.randn(1, 1, 4096, dtype=torch.bfloat16).to(device))
+        self.ae_embedding = nn.Parameter(torch.randn(1, 1, hidden_size, dtype=torch.bfloat16).to(device))
         self.ae_embedding.requires_grad = True
         self.device = device
+        self.hidden_size = hidden_size
 
     def forward(self, input_ids, labels):
         ####################
@@ -63,5 +68,3 @@ class ICAEL3(nn.Module):
         loss = self.criterion(all_logits.view(-1, all_logits.size(-1)), target_tokens.view(-1))
 
         return {'loss': loss, 'logits': all_logits}
-
-

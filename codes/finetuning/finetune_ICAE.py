@@ -4,6 +4,7 @@ import torch
 import numpy as np
 import torch.nn as nn
 from rouge import Rouge
+import argparse
 import torch.optim as optim
 from peft import LoraConfig
 from ICAEL3QA import ICAEL3QA
@@ -21,111 +22,160 @@ def read_jsonl_file(file_path):
     return data
 
 class TextDataset(Dataset):
-    def __init__(self, text_file, llama_path, max_context_length, max_qa_len, num_mem):
+    def __init__(self, text_file, llama_path, max_context_length, max_qa_len, num_mem, eos_token_id):
         self.text = read_jsonl_file(text_file)
-        self.tokenizer = AutoTokenizer.from_pretrained(llama_path, use_auth_token="<to be filled>")
+        self.tokenizer = AutoTokenizer.from_pretrained(llama_path, trust_remote_code=True)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.max_context_length = max_context_length
         self.max_qa_len = max_qa_len
         self.num_mem = num_mem
+        self.eos_token_id = eos_token_id if eos_token_id is not None else self.tokenizer.eos_token_id
+
     def __len__(self):
         return len(self.text)
+
     def __getitem__(self, idx):
         c_tokens = self.tokenizer(
-            self.text[idx]["context"], 
-            truncation=True, 
-            padding="max_length", 
-            max_length=self.max_context_length, 
+            self.text[idx]["context"],
+            truncation=True,
+            padding="max_length",
+            max_length=self.max_context_length,
             return_tensors="pt",
             add_special_tokens=False
         ).input_ids.squeeze()
 
         question = self.text[idx]["question"]
         q_tokens = self.tokenizer(
-            f"Question: {question} Answer: ", 
+            f"Question: {question} Answer: ",
             return_tensors="pt",
             add_special_tokens=False
         ).input_ids.squeeze()
 
         a_tokens = self.tokenizer(
-            self.text[idx]["answer"], 
+            self.text[idx]["answer"],
             return_tensors="pt",
             add_special_tokens=False
         ).input_ids.squeeze()
         if a_tokens.shape == torch.Size([]):
             a_tokens = self.tokenizer(
-                self.text[idx]["answer"], 
+                self.text[idx]["answer"],
                 return_tensors="pt",
                 add_special_tokens=False
             ).input_ids.reshape(1)
-        
-        input_ids = torch.full((self.max_context_length+self.max_qa_len,), 128001, dtype=torch.long)
+
+        input_ids = torch.full((self.max_context_length+self.max_qa_len,), self.eos_token_id, dtype=torch.long)
         input_ids[:self.max_context_length] = c_tokens
-        input_ids[self.max_context_length:self.max_context_length+len(q_tokens)+len(a_tokens)] = torch.cat((q_tokens, a_tokens), dim=0)  
+        input_ids[self.max_context_length:self.max_context_length+len(q_tokens)+len(a_tokens)] = torch.cat((q_tokens, a_tokens), dim=0)
 
         target_tokens = torch.full((self.num_mem+self.max_qa_len,), -100, dtype=torch.long)
-        target_tokens[self.num_mem+len(q_tokens)-1:self.num_mem+len(q_tokens)-1+len(a_tokens)+1] = torch.cat((a_tokens, torch.tensor([128001])), dim=0)
+        target_tokens[self.num_mem+len(q_tokens)-1:self.num_mem+len(q_tokens)-1+len(a_tokens)+1] = torch.cat((a_tokens, torch.tensor([self.eos_token_id])), dim=0)
 
         return {"input_ids": input_ids, "labels": target_tokens}
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Finetune ICAE model")
+
+    # Model arguments
+    parser.add_argument("--model_path", type=str, required=True,
+                        help="Path to the base LLM model")
+    parser.add_argument("--num_mem", type=int, default=256,
+                        help="Number of compressed tokens")
+    parser.add_argument("--max_length", type=int, default=2048,
+                        help="Max number of context tokens to be compressed")
+    parser.add_argument("--max_qa_len", type=int, default=46,
+                        help="Max number of QA tokens")
+
+    # Data arguments
+    parser.add_argument("--train_text_path", type=str, required=True,
+                        help="Path to training jsonl file")
+    parser.add_argument("--test_text_path", type=str, required=True,
+                        help="Path to test/eval jsonl file")
+
+    # LoRA path
+    parser.add_argument("--lora_path", type=str, required=True,
+                        help="Pretrained LoRA parameters path for initialization")
+
+    # Output arguments
+    parser.add_argument("--output_dir", type=str, required=True,
+                        help="Directory to save model checkpoints")
+    parser.add_argument("--logging_dir", type=str, required=True,
+                        help="Directory for logging")
+    parser.add_argument("--project_name", type=str, default="ICAE-finetuning",
+                        help="Wandb project name")
+
+    # DeepSpeed arguments
+    parser.add_argument("--deepspeed_config", type=str, required=True,
+                        help="Path to DeepSpeed configuration JSON file")
+
+    # Training hyperparameters
+    parser.add_argument("--num_train_epochs", type=int, default=10,
+                        help="Number of training epochs")
+    parser.add_argument("--per_device_train_batch_size", type=int, default=4,
+                        help="Batch size per GPU for training")
+    parser.add_argument("--per_device_eval_batch_size", type=int, default=48,
+                        help="Batch size per GPU for evaluation")
+    parser.add_argument("--learning_rate", type=float, default=5e-5,
+                        help="Learning rate")
+    parser.add_argument("--save_steps", type=int, default=100,
+                        help="Save checkpoint every X steps")
+    parser.add_argument("--eval_steps", type=int, default=500,
+                        help="Evaluate every X steps")
+    parser.add_argument("--warmup_steps", type=int, default=300,
+                        help="Number of warmup steps")
+    parser.add_argument("--save_total_limit", type=int, default=3,
+                        help="Maximum number of checkpoints to keep")
+    parser.add_argument("--eval_accumulation_steps", type=int, default=4,
+                        help="Evaluation accumulation steps")
+
+    # LoRA arguments
+    parser.add_argument("--lora_r", type=int, default=64,
+                        help="LoRA rank")
+    parser.add_argument("--lora_alpha", type=int, default=32,
+                        help="LoRA alpha")
+    parser.add_argument("--lora_dropout", type=float, default=0.05,
+                        help="LoRA dropout")
+
+    # Resume training
+    parser.add_argument("--resume_from_checkpoint", type=str, default=None,
+                        help="Path to checkpoint to resume from")
+
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
+    args = parse_args()
     device = torch.device(f"cuda")
 
-    # ====================
-    # Training parameters
-    # ====================
-    project_name = "<to be filled>"
-    train_text_path = "<to be filled>"
-    test_text_path = "<to be filled>"
-    lora_path="<to be filled>"
-    resume_from_checkpoint = None
-    num_mem = 1
-    max_length = 500
-    max_qa_len = 46 
-    llama_path="meta-llama/Meta-Llama-3-8B-Instruct"
+    # Get EOS token ID from tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
+    eos_token_id = tokenizer.eos_token_id
+    print(f"EOS token ID: {eos_token_id}")
 
-    output_dir = "<to be filled>"
-    deepspeed_config = "<to be filled>"
-    logging_dir = "<to be filled>"
-    num_train_epochs = 10
-    per_device_train_batch_size = 4
-    per_device_eval_batch_size = 48
-    save_strategy = "steps"
-    save_steps = 100
-    evaluation_strategy = "steps"
-    eval_steps = 500
-    eval_accumulation_steps = 4
-    logging_steps = 1
-    learning_rate = 5e-5
-    save_total_limit = 3
-    lr_scheduler_type = "constant_with_warmup"
-    warmup_steps = 300
-
-    train_dataset = TextDataset(train_text_path, llama_path, max_length, max_qa_len, num_mem)
-    test_dataset = TextDataset(test_text_path, llama_path, max_length, max_qa_len, num_mem)
+    train_dataset = TextDataset(args.train_text_path, args.model_path, args.max_length, args.max_qa_len, args.num_mem, eos_token_id)
+    test_dataset = TextDataset(args.test_text_path, args.model_path, args.max_length, args.max_qa_len, args.num_mem, eos_token_id)
     print("Dataset created.")
-    
+
     lora_config = LoraConfig(
-        r=64,
-        lora_alpha=32,
-        lora_dropout=0.05,
+        r=args.lora_r,
+        lora_alpha=args.lora_alpha,
+        lora_dropout=args.lora_dropout,
         bias="none",
         task_type="CAUSAL_LM"
     )
 
-    wandb.init(project=project_name)
+    wandb.init(project=args.project_name, dir="/tmp/wandb")
 
     # ====================
     # Compression model
     # ====================
     print("Loading llama + lora + llama ...")
     model = ICAEL3QA(
-        llama_path=llama_path,
-        max_context_length=max_length,
-        lora_path=lora_path,
+        llama_path=args.model_path,
+        max_context_length=args.max_length,
+        lora_path=args.lora_path,
         lora_config=lora_config,
-        num_mem=num_mem,
+        num_mem=args.num_mem,
         device=device
     )
     print("Number of trainable parameters in the model: ", sum(p.numel() for p in model.parameters() if p.requires_grad))
@@ -140,23 +190,23 @@ if __name__ == "__main__":
     torch.autograd.set_detect_anomaly(True)
 
     training_args = TrainingArguments(
-        output_dir=output_dir,          
-        overwrite_output_dir=False,      
-        num_train_epochs=num_train_epochs,              
-        per_device_train_batch_size=per_device_train_batch_size,   
-        per_device_eval_batch_size=per_device_eval_batch_size, 
-        save_strategy=save_strategy,
-        save_steps=save_steps,      
-        evaluation_strategy=evaluation_strategy,    
-        eval_steps=eval_steps, 
-        eval_accumulation_steps=eval_accumulation_steps,
-        logging_dir=logging_dir,    
-        logging_steps=logging_steps,
-        deepspeed=deepspeed_config,
-        learning_rate=learning_rate,
-        save_total_limit=save_total_limit,
-        lr_scheduler_type=lr_scheduler_type,
-        warmup_steps=warmup_steps,
+        output_dir=args.output_dir,
+        overwrite_output_dir=False,
+        num_train_epochs=args.num_train_epochs,
+        per_device_train_batch_size=args.per_device_train_batch_size,
+        per_device_eval_batch_size=args.per_device_eval_batch_size,
+        save_strategy="steps",
+        save_steps=args.save_steps,
+        evaluation_strategy="steps",
+        eval_steps=args.eval_steps,
+        eval_accumulation_steps=args.eval_accumulation_steps,
+        logging_dir=args.logging_dir,
+        logging_steps=1,
+        deepspeed=args.deepspeed_config,
+        learning_rate=args.learning_rate,
+        save_total_limit=args.save_total_limit,
+        lr_scheduler_type="constant_with_warmup",
+        warmup_steps=args.warmup_steps,
     )
 
     trainer = Trainer(
@@ -166,11 +216,10 @@ if __name__ == "__main__":
         eval_dataset=test_dataset,
     )
 
-    if resume_from_checkpoint == None:
+    if args.resume_from_checkpoint is None:
         trainer.train()
     else:
-        trainer.train(resume_from_checkpoint=resume_from_checkpoint)
-    
+        trainer.train(resume_from_checkpoint=args.resume_from_checkpoint)
+
     evaluation_results = trainer.evaluate()
     print("evaluation_results: ", evaluation_results)
-

@@ -23,15 +23,16 @@ class L3LoraL3(nn.Module):
             device (torch.device): CPU or GPU.
         """
         super(L3LoraL3, self).__init__()
-        # load the original base LLaMA model
+        # load the original base LLM model
         llama = AutoModelForCausalLM.from_pretrained(
-            llama_path, 
-            # cache path to save the LLaMA model
-            cache_dir="<to be filled>", 
-            # huggingface token to use the LLaMA model
-            use_auth_token="<to be filled>",
+            llama_path,
             torch_dtype=torch.bfloat16,
+            trust_remote_code=True,
         )
+        # Get hidden size from model config (compatible with different models)
+        hidden_size = llama.config.hidden_size
+        print(f"Model hidden size: {hidden_size}")
+
         # add LoRA parameters to the LLM
         self.llama = get_peft_model(llama, lora_config)
         # only LoRA parameters are trainable
@@ -40,9 +41,9 @@ class L3LoraL3(nn.Module):
             if 'lora' in name:
                 param.requires_grad = True
         print(f"Total parameters of llama: {sum(p.numel() for p in self.llama.parameters())}")
-        # load the LLaMA tokenizer
-        self.tokenizer = AutoTokenizer.from_pretrained(llama_path, use_auth_token="<to be filled>")
-        print("llama tokenizer loaded.")
+        # load the tokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(llama_path, trust_remote_code=True)
+        print("tokenizer loaded.")
         # set the padding token
         self.tokenizer.pad_token = self.tokenizer.eos_token
         # max number of tokens to be compressed
@@ -50,10 +51,19 @@ class L3LoraL3(nn.Module):
         self.criterion = nn.CrossEntropyLoss(ignore_index=-100)
         # number of compressed tokens
         self.num_mem = num_mem
-        # compressed token
-        self.memory_embeddings = nn.Parameter(torch.randn(1, num_mem, 4096, dtype=torch.bfloat16).to(device))
+        # compressed token embeddings - use dynamic hidden_size
+        self.memory_embeddings = nn.Parameter(torch.randn(1, num_mem, hidden_size, dtype=torch.bfloat16).to(device))
         self.memory_embeddings.requires_grad = True
         self.device = device
+        self.hidden_size = hidden_size
+        # Handle BOS token - some models (like Qwen) don't have BOS token
+        if self.tokenizer.bos_token_id is not None:
+            self.bos_token_id = self.tokenizer.bos_token_id
+            print(f"BOS token ID: {self.bos_token_id}")
+        else:
+            # Use EOS token as fallback for models without BOS
+            self.bos_token_id = self.tokenizer.eos_token_id
+            print(f"Model has no BOS token, using EOS token ID as fallback: {self.bos_token_id}")
 
     def forward(self, input_ids, labels):
         ####################
@@ -73,15 +83,15 @@ class L3LoraL3(nn.Module):
         past_key_values = encoder_output.past_key_values
         # get the K V values for the compressed tokens
         trimmed_past_key_values = tuple(
-            (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :]) 
+            (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
             for layer_key, layer_value in past_key_values
         )
 
         ####################
         # Decoder - llama
         ####################
-        # BOS token
-        prompt_tokens = [self.tokenizer.bos_token_id]
+        # BOS token (or fallback)
+        prompt_tokens = [self.bos_token_id]
         prompt_tokens = torch.tensor(prompt_tokens, device=self.device)
         prompt_tok_embeddings = self.llama.get_input_embeddings()(prompt_tokens)
         prompt_tok_embeddings = prompt_tok_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1)
@@ -99,5 +109,3 @@ class L3LoraL3(nn.Module):
         loss = self.criterion(all_logits.view(-1, all_logits.size(-1)), target_tokens.view(-1))
 
         return {'loss': loss, 'logits': all_logits}
-
-

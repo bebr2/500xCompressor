@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+/results/
+/results-old-old/
+/results_bge/
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+.vscode/
+**/output*/
+
+-/
+MemoryBench/
+learn-claude-code/
+UserLog2Skill/
+# skills/
+skill-agent-skills/
+# U2S/artifacts/
+# U2S/skills/
+
+wandb/
