@@ -1,57 +1,115 @@
-n124-167-226:389244:390173 [3] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+24-167-226:398101:399040 [1] NCCL INFO Channel 07/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 08/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 09/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 10/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 11/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 12/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 13/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 14/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 15/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 16/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 17/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 18/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 19/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 20/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 21/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 22/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398101:399040 [1] NCCL INFO Channel 23/0 : 1[1] -> 2[2] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 05/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 16/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 17/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 18/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 19/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 20/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 21/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 22/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398100:399041 [0] NCCL INFO Channel 23/0 : 0[0] -> 1[1] via P2P/CUMEM
+n124-167-226:398106:399036 [6] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+n124-167-226:398107:399037 [7] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+n124-167-226:398100:399041 [0] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+n124-167-226:398105:399034 [5] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+n124-167-226:398104:399038 [4] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+n124-167-226:398102:399035 [2] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+n124-167-226:398101:399040 [1] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+n124-167-226:398103:399039 [3] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
 Parameter Offload - Persistent parameters statistics: param_count = 217, numel = 5026816
-  0% 0/2 [00:00<?, ?it/s]ERROR: 'tuple' object has no attribute 'get_seq_length'
-  0% 0/2 [00:12<?, ?it/s]
-n124-167-226:389246:390094 [5] NCCL INFO [Service thread] Connection closed by localRank 6
-n124-167-226:389248:390096 [7] NCCL INFO [Service thread] Connection closed by localRank 6
-n124-167-226:389246:390157 [5] NCCL INFO [Service thread] Connection closed by localRank 6
-n124-167-226:389248:390151 [7] NCCL INFO [Service thread] Connection closed by localRank 6
-n124-167-226:389248:390096 [7] NCCL INFO [Service thread] Connection closed by localRank 0
-n124-167-226:389242:390098 [1] NCCL INFO [Service thread] Connection closed by localRank 0
-n124-167-226:389248:390151 [7] NCCL INFO [Service thread] Connection closed by localRank 0
-n124-167-226:389242:390145 [1] NCCL INFO [Service thread] Connection closed by localRank 0
-[rank2]:[W516 11:21:55.104907470 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=95, addr=[localhost]:40832, remote=[localhost]:11470): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
-Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7fbbab145b80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
-frame #1: <unknown function> + 0x5ffd531 (0x7fbbed4a2531 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #2: <unknown function> + 0x5ffe92d (0x7fbbed4a392d in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #3: <unknown function> + 0x5fff4da (0x7fbbed4a44da in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7fbbed49f1fe in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7fbbac01d6b8 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #6: <unknown function> + 0xd44a3 (0x7fbc02eba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
-frame #7: <unknown function> + 0x891f5 (0x7fbc0b5ea1f5 in /lib/x86_64-linux-gnu/libc.so.6)
-frame #8: <unknown function> + 0x1098dc (0x7fbc0b66a8dc in /lib/x86_64-linux-gnu/libc.so.6)
+  0% 0/2 [00:00<?, ?it/s]ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
+ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
+ERROR in forward: Boolean value of Tensor with more than one value is ambiguousERROR in forward: Boolean value of Tensor with more than one value is ambiguous
 
-[rank2]:[W516 11:21:55.110574154 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 2] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
-[rank4]:[W516 11:21:55.158207153 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=95, addr=[localhost]:48646, remote=[localhost]:11470): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
-Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:697 (most recent call first):
-frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4e1717cb80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
-frame #1: <unknown function> + 0x5ffd531 (0x7f4dfa2a2531 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #2: <unknown function> + 0x5ffe92d (0x7f4dfa2a392d in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #3: <unknown function> + 0x5fff4da (0x7f4dfa2a44da in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7f4dfa29f1fe in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
-frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7f4db8e1d6b8 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
-frame #6: <unknown function> + 0xd44a3 (0x7f4e0fcba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
-frame #7: <unknown function> + 0x891f5 (0x7f4e184dd1f5 in /lib/x86_64-linux-gnu/libc.so.6)
-frame #8: <unknown function> + 0x1098dc (0x7f4e1855d8dc in /lib/x86_64-linux-gnu/libc.so.6)
-
-[rank4]:[W516 11:21:55.163528402 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 4] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
-n124-167-226:389242:390098 [0] NCCL INFO [Service thread] Connection closed by localRank 2
-n124-167-226:389244:390088 [0] NCCL INFO [Service thread] Connection closed by localRank 2
-n124-167-226:389242:390145 [0] NCCL INFO [Service thread] Connection closed by localRank 2
-n124-167-226:389244:390149 [0] NCCL INFO [Service thread] Connection closed by localRank 2
-n124-167-226:389244:390088 [0] NCCL INFO [Service thread] Connection closed by localRank 4
-n124-167-226:389246:390094 [0] NCCL INFO [Service thread] Connection closed by localRank 4
-n124-167-226:389244:390149 [0] NCCL INFO [Service thread] Connection closed by localRank 4
-n124-167-226:389246:390157 [0] NCCL INFO [Service thread] Connection closed by localRank 4
-[2026-05-16 11:21:56,694] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389241
-[2026-05-16 11:21:56,788] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389242
-[2026-05-16 11:21:58,015] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389243
-[2026-05-16 11:21:58,017] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389244
-[2026-05-16 11:21:58,018] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389245
-[2026-05-16 11:21:58,019] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389246
-[2026-05-16 11:21:58,020] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389247
-[2026-05-16 11:21:58,020] [INFO] [launch.py:335:sigkill_handler] Killing subprocess 389248
-[2026-05-16 11:21:58,021] [ERROR] [launch.py:341:sigkill_handler] ['/usr/local/bin/python3.11', '-u', 'test_bsz.py', '--local_rank=7', '--model_path', '/mnt/hdfs/wangchangyue/LLM/Qwen3-8B', '--batch_size', '1', '--num_mem', '256', '--max_length', '2048'] exits with return code = 1
-
-Exit code: 0
+ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
+ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
+ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
+ERROR in forward: Boolean value of Tensor with more than one value is ambiguous
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+ERROR: Boolean value of Tensor with more than one value is ambiguous
+Traceback (most recent call last):
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+Traceback (most recent call last):
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+Traceback (most recent call last):
+  File "/mnt/hdfs/wangchangyue/500xCompressor/codes/pretraining/L3LoraL3.py", line 81, in forward
+    trimmed_cache.update(
+  File "/home/tiger/.local/lib/python3.11/site-packages/transformers/cache_utils.py", line 768, in update
+    while len(self.layers) <= layer_idx:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
