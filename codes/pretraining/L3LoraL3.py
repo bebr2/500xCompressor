@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, DynamicCache
 from peft import get_peft_model
 
 
@@ -67,17 +67,17 @@ class L3LoraL3(nn.Module):
         encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
         past_key_values = encoder_output.past_key_values
 
-        # 处理新版 transformers 的 Cache 对象
-        # 如果是 Cache 对象，先用 to_legacy_cache() 转成 tuple
-        if not isinstance(past_key_values, tuple):
-            # Cache object (new transformers)
-            past_key_values = past_key_values.to_legacy_cache()
-
-        # 取最后 num_mem 个位置的 KV
-        trimmed_past_key_values = tuple(
-            (layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
-            for layer_key, layer_value in past_key_values
-        )
+        # 用 DynamicCache 构建 trimmed cache，兼容新版 transformers
+        trimmed_cache = DynamicCache()
+        if hasattr(past_key_values, 'get_seq_length'):
+            # 已经是 Cache 对象
+            for layer_idx in range(past_key_values.get_seq_length()):
+                key, value = past_key_values[layer_idx]
+                trimmed_cache.update(layer_idx, key[:, :, -self.num_mem:, :], value[:, :, -self.num_mem:, :])
+        else:
+            # 是 tuple
+            for layer_idx, (layer_key, layer_value) in enumerate(past_key_values):
+                trimmed_cache.update(layer_idx, layer_key[:, :, -self.num_mem:, :], layer_value[:, :, -self.num_mem:, :])
 
         ####################
         # Decoder - llama
@@ -91,7 +91,7 @@ class L3LoraL3(nn.Module):
         with self.llama.disable_adapter():
             decoder_output = self.llama(
                 inputs_embeds=decoder_input_embeddings,
-                past_key_values=trimmed_past_key_values
+                past_key_values=trimmed_cache
             )
         all_logits = decoder_output.logits
 
