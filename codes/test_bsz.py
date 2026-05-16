@@ -11,6 +11,7 @@ import os
 import gc
 import json
 import tempfile
+from datetime import timedelta
 from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, TrainingArguments, Trainer
 
@@ -38,7 +39,15 @@ def setup_distributed():
     world_size = int(os.environ.get('WORLD_SIZE', 1))
 
     if world_size > 1 and not dist.is_initialized():
-        dist.init_process_group(backend='nccl')
+        # Set shorter NCCL timeout for faster failure detection (default is 600s)
+        # This helps avoid long hangs when one GPU fails
+        os.environ.setdefault('NCCL_TIMEOUT', '300')  # 5 minutes
+        # Enable NCCL blocking wait to prevent deadlocks
+        os.environ.setdefault('NCCL_BLOCKING_WAIT', '1')
+        # Enable NCCL debug for troubleshooting (can be disabled later)
+        # os.environ.setdefault('NCCL_DEBUG', 'INFO')
+
+        dist.init_process_group(backend='nccl', timeout=timedelta(minutes=5))
 
     torch.cuda.set_device(local_rank)
     return rank, local_rank, world_size
@@ -223,8 +232,10 @@ def test_batch_size(args, batch_size, rank, local_rank, world_size):
 
         return True
 
-    except RuntimeError as e:
-        if "out of memory" in str(e).lower():
+    except Exception as e:
+        # Catch all exceptions (RuntimeError, DistBackendError, etc.)
+        error_str = str(e).lower()
+        if "out of memory" in error_str or "oom" in error_str:
             if rank == 0:
                 mem_info = get_memory_info()
                 print(f"  OOM! batch_size={batch_size}, "
@@ -239,16 +250,12 @@ def test_batch_size(args, batch_size, rank, local_rank, world_size):
             return False
         else:
             if rank == 0:
-                print(f"  Error: {e}")
+                print(f"  Error ({type(e).__name__}): {e}")
+            # Cleanup and re-raise to let caller handle it
+            clear_memory()
             import shutil
             shutil.rmtree(temp_dir, ignore_errors=True)
-            raise e
-    except Exception as e:
-        if rank == 0:
-            print(f"  Error: {e}")
-        import shutil
-        shutil.rmtree(temp_dir, ignore_errors=True)
-        raise e
+            return False  # Return False instead of raising to prevent deadlock
 
 def find_max_batch_size(args, rank, local_rank, world_size):
     """Binary search for maximum batch size."""
@@ -274,9 +281,15 @@ def find_max_batch_size(args, rank, local_rank, world_size):
         if rank == 0:
             print(f"\n[{low}-{high}] Testing batch_size={mid}...")
 
-        success = test_batch_size(args, mid, rank, local_rank, world_size)
+        # Use try-except to ensure all_reduce is always called
+        try:
+            success = test_batch_size(args, mid, rank, local_rank, world_size)
+        except Exception as e:
+            if rank == 0:
+                print(f"  Exception during test: {e}")
+            success = False
 
-        # Sync across GPUs
+        # Sync across GPUs - MUST be called by all processes
         if world_size > 1:
             success_tensor = torch.tensor([1 if success else 0],
                                           dtype=torch.int32,
