@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 venv/
 .env
+/data/
 /results/
 /results-old-old/
 /results_bge/
