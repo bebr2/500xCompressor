@@ -56,48 +56,54 @@ class L3LoraL3(nn.Module):
             print(f"Model has no BOS token, using EOS token ID as fallback: {self.bos_token_id}")
 
     def forward(self, input_ids, labels=None, **kwargs):
-        ####################
-        # Encoder - llama+lora
-        ####################
-        text_tokens = input_ids
-        target_tokens = labels
-        text_tok_embeddings = self.llama.get_input_embeddings()(text_tokens).to(self.device)
-        memory_tok_embeddings = self.memory_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1).to(self.device)
-        encoder_input_embeddings = torch.cat((text_tok_embeddings, memory_tok_embeddings), dim=1)
-        encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
-        past_key_values = encoder_output.past_key_values
+        try:
+            ####################
+            # Encoder - llama+lora
+            ####################
+            text_tokens = input_ids
+            target_tokens = labels
+            text_tok_embeddings = self.llama.get_input_embeddings()(text_tokens).to(self.device)
+            memory_tok_embeddings = self.memory_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1).to(self.device)
+            encoder_input_embeddings = torch.cat((text_tok_embeddings, memory_tok_embeddings), dim=1)
+            encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
+            past_key_values = encoder_output.past_key_values
 
-        # 构建 DynamicCache，只保留最后 num_mem 个位置的 KV
-        trimmed_cache = DynamicCache()
-        num_layers = self.llama.config.num_hidden_layers
+            # 构建 DynamicCache，只保留最后 num_mem 个位置的 KV
+            trimmed_cache = DynamicCache()
+            num_layers = self.llama.config.num_hidden_layers
 
-        # past_key_values 是 tuple 或可索引的对象，直接按层索引
-        for layer_idx in range(num_layers):
-            kv = past_key_values[layer_idx]
-            layer_key = kv[0]  # [batch, num_heads, seq_len, head_dim]
-            layer_value = kv[1]
-            # 取最后 num_mem 个位置
-            trimmed_cache.update(
-                layer_idx,
-                layer_key[:, :, -self.num_mem:, :].contiguous(),
-                layer_value[:, :, -self.num_mem:, :].contiguous()
-            )
+            # past_key_values 是 tuple 或可索引的对象，直接按层索引
+            for layer_idx in range(num_layers):
+                kv = past_key_values[layer_idx]
+                layer_key = kv[0]  # [batch, num_heads, seq_len, head_dim]
+                layer_value = kv[1]
+                # 取最后 num_mem 个位置
+                trimmed_cache.update(
+                    layer_idx,
+                    layer_key[:, :, -self.num_mem:, :].contiguous(),
+                    layer_value[:, :, -self.num_mem:, :].contiguous()
+                )
 
-        ####################
-        # Decoder - llama
-        ####################
-        prompt_tokens = torch.tensor([self.bos_token_id], device=self.device)
-        prompt_tok_embeddings = self.llama.get_input_embeddings()(prompt_tokens)
-        prompt_tok_embeddings = prompt_tok_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1)
+            ####################
+            # Decoder - llama
+            ####################
+            prompt_tokens = torch.tensor([self.bos_token_id], device=self.device)
+            prompt_tok_embeddings = self.llama.get_input_embeddings()(prompt_tokens)
+            prompt_tok_embeddings = prompt_tok_embeddings.repeat(text_tok_embeddings.shape[0], 1, 1)
 
-        decoder_input_embeddings = torch.cat((prompt_tok_embeddings, text_tok_embeddings), dim=1)
-        with self.llama.disable_adapter():
-            decoder_output = self.llama(
-                inputs_embeds=decoder_input_embeddings,
-                past_key_values=trimmed_cache
-            )
-        all_logits = decoder_output.logits
+            decoder_input_embeddings = torch.cat((prompt_tok_embeddings, text_tok_embeddings), dim=1)
+            with self.llama.disable_adapter():
+                decoder_output = self.llama(
+                    inputs_embeds=decoder_input_embeddings,
+                    past_key_values=trimmed_cache
+                )
+            all_logits = decoder_output.logits
 
-        loss = self.criterion(all_logits.view(-1, all_logits.size(-1)), target_tokens.view(-1))
+            loss = self.criterion(all_logits.view(-1, all_logits.size(-1)), target_tokens.view(-1))
 
-        return {'loss': loss, 'logits': all_logits}
+            return {'loss': loss, 'logits': all_logits}
+        except Exception as e:
+            import traceback
+            print(f"ERROR in forward: {e}")
+            traceback.print_exc()
+            raise
