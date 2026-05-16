@@ -1,25 +1,8 @@
-Parameter Offload - Persistent parameters statistics: param_count = 217, numel = 5026816
-  0%|          | 0/2 [00:00<?, ?it/s]past_key_values type: DynamicCache
-past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']past_key_values type: DynamicCache
-
-past_key_values type: DynamicCacheUsing to_legacy_cache fallback
-
-past_key_values type: DynamicCachepast_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
-
-past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']Using to_legacy_cache fallback
-
-Using to_legacy_cache fallback
-past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
-Using to_legacy_cache fallback
-past_key_values type: DynamicCache
-past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
-Using to_legacy_cache fallback
-past_key_values type: DynamicCache
-past_key_values type: DynamicCache
-past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
-Using to_legacy_cache fallback
-past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
-Using to_legacy_cache fallback
-past_key_values type: DynamicCache
-past_key_values attributes: ['batch_repeat_interleave', 'batch_select_indices', 'crop', 'early_initialization', 'from_legacy_cache', 'get_mask_sizes', 'get_max_cache_shape', 'get_seq_length', 'is_compileable', 'is_initialized', 'is_sliding', 'layer_class_to_replicate', 'layers', 'max_batch_size', 'max_cache_len', 'offload', 'offloading', 'prefetch', 'reorder_cache', 'reset', 'to_legacy_cache', 'update']
-Using to_legacy_cache fallback
+24-167-226:424877:425716 [1] NCCL INFO Init timings - ncclCommInitRankConfig: rank 1 nranks 8 total 3.19 (kernels 0.52, alloc 1.71, bootstrap 0.01, allgathers 0.04, topo 0.81, graphs 0.01, connections 0.07, rest 0.02)
+ERROR: 2 validation errors for DeepSpeedZeroConfig
+partition_activations
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden
+contiguous_memory_optimization
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden

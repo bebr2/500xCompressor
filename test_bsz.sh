@@ -4,9 +4,9 @@
 
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes
 
-MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/Qwen3-8B"
+MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/phi-4"
 START_BSZ=1
-MAX_BSZ=3
+MAX_BSZ=2
 NUM_GPUS=8
 MASTER_PORT=11470
 
