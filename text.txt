@@ -1,24 +1,37 @@
-rank6]:     raise ValueError(
-[rank6]: ValueError: The model's config file has neither `hidden_size` nor `hidden_sizes` entry, therefore it's not possible to automatically fill out the following `auto` entries in the DeepSpeed config file: ['zero_optimization.reduce_bucket_size', 'zero_optimization.stage3_prefetch_bucket_size', 'zero_optimization.stage3_param_persistence_threshold']. You can fix that by replacing `auto` values for these keys with an integer value of your choice.
-[rank7]: Traceback (most recent call last):
-[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 325, in <module>
-[rank7]:     max_bsz = find_max_batch_size(args, rank, local_rank, world_size)
-[rank7]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 271, in find_max_batch_size
-[rank7]:     success = test_batch_size(args, mid, rank, local_rank, world_size)
-[rank7]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 245, in test_batch_size
-[rank7]:     raise e
-[rank7]:   File "/mnt/hdfs/wangchangyue/500xCompressor/codes/test_bsz.py", line 199, in test_batch_size
-[rank7]:     trainer.train()
-[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/trainer.py", line 2325, in train
-[rank7]:     return inner_training_loop(
-[rank7]:            ^^^^^^^^^^^^^^^^^^^^
-[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/trainer.py", line 2429, in _inner_training_loop
-[rank7]:     self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
-[rank7]:                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/integrations/deepspeed.py", line 447, in deepspeed_init
-[rank7]:     hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
-[rank7]:   File "/home/tiger/.local/lib/python3.11/site-packages/transformers/integrations/deepspeed.py", line 238, in trainer_config_finalize
-[rank7]:     raise ValueError(
-[rank7]: ValueError: The model's config file has neither `hidden_size` nor `hidden_sizes` entry, therefore it's not possible to automatically fill out the following `auto` entries in the DeepSpeed config file: ['zero_optimization.reduce_bucket_size', 'zero_optimization.stage3_prefetch_bucket_size', 'zero_optimization.stage3_param_persistence_threshold']. You can fix that by replacing `auto` values for these keys with an integer value of your choice.
+rame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x247 (0x7f1c17820407 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x1691 (0x7f1c17825011 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::Watchdog::run() + 0xdf (0x7f1c1782625f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xd44a3 (0x7f1c6e6ba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #5: <unknown function> + 0x891f5 (0x7f1c76e601f5 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x1098dc (0x7f1c76ee08dc in /lib/x86_64-linux-gnu/libc.so.6)
+
+Exception raised from run at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:2063 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f1c75b7cb80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0xe336d1 (0x7f1c177fc6d1 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: <unknown function> + 0x95044f (0x7f1c1731944f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: <unknown function> + 0xd44a3 (0x7f1c6e6ba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #4: <unknown function> + 0x891f5 (0x7f1c76e601f5 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #5: <unknown function> + 0x1098dc (0x7f1c76ee08dc in /lib/x86_64-linux-gnu/libc.so.6)
+
+[rank0]:[E516 10:11:37.166978153 ProcessGroupNCCL.cpp:744] [Rank 0] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank0]:[E516 10:11:37.167018540 ProcessGroupNCCL.cpp:758] [Rank 0] To avoid data inconsistency, we are taking the entire process down.
+[rank0]:[E516 10:11:37.168050699 ProcessGroupNCCL.cpp:2057] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=4533, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600060 milliseconds before timing out.
+Exception raised from checkTimeout at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:686 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4759145b80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x247 (0x7f475a020407 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x1691 (0x7f475a025011 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::Watchdog::run() + 0xdf (0x7f475a02625f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xd44a3 (0x7f47b0eba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #5: <unknown function> + 0x891f5 (0x7f47b95471f5 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x1098dc (0x7f47b95c78dc in /lib/x86_64-linux-gnu/libc.so.6)
+
+terminate called after throwing an instance of 'c10::DistBackendError'
+  what():  [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=4533, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600060 milliseconds before timing out.
+Exception raised from checkTimeout at /pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:686 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f4759145b80 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x247 (0x7f475a020407 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x1691 (0x7f475a025011 in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::Watchdog::run() + 0xdf (0x7f475a02625f in /usr/local/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xd44a3 (0x7f47b0eba4a3 in /lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #5: <unknown function> + 0x891f5 (0x7f47b95471f5 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x1098dc (0x7f47b95c78dc in /lib/x86_64-linux-gnu/libc.so.6)
