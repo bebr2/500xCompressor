@@ -67,19 +67,33 @@ class L3LoraL3(nn.Module):
         encoder_output = self.llama(inputs_embeds=encoder_input_embeddings)
         past_key_values = encoder_output.past_key_values
 
-        # 用 tuple 格式，直接切片
-        # past_key_values 是 tuple of (key, value) tuples
-        trimmed_past_key_values = []
-        for layer_idx in range(self.llama.config.num_hidden_layers):
-            kv = past_key_values[layer_idx]
-            layer_key = kv[0]  # [batch, num_heads, seq_len, head_dim]
-            layer_value = kv[1]
-            # 取最后 num_mem 个位置
-            trimmed_past_key_values.append(
-                (layer_key[:, :, -self.num_mem:, :].contiguous(),
-                 layer_value[:, :, -self.num_mem:, :].contiguous())
+        # 处理 past_key_values，只保留最后 num_mem 个位置
+        # 新版 transformers 用 Cache 对象，需要直接操作内部数据
+        if hasattr(past_key_values, 'key_cache'):
+            # DynamicCache 格式：直接切片内部列表
+            for i in range(len(past_key_values.key_cache)):
+                past_key_values.key_cache[i] = past_key_values.key_cache[i][:, :, -self.num_mem:, :].contiguous()
+                past_key_values.value_cache[i] = past_key_values.value_cache[i][:, :, -self.num_mem:, :].contiguous()
+            trimmed_cache = past_key_values
+        elif hasattr(past_key_values, '_key_cache'):
+            # 另一种命名
+            for i in range(len(past_key_values._key_cache)):
+                past_key_values._key_cache[i] = past_key_values._key_cache[i][:, :, -self.num_mem:, :].contiguous()
+                past_key_values._value_cache[i] = past_key_values._value_cache[i][:, :, -self.num_mem:, :].contiguous()
+            trimmed_cache = past_key_values
+        elif isinstance(past_key_values, tuple):
+            # 旧版 tuple 格式
+            trimmed_cache = tuple(
+                (k[:, :, -self.num_mem:, :].contiguous(), v[:, :, -self.num_mem:, :].contiguous())
+                for k, v in past_key_values
             )
-        trimmed_past_key_values = tuple(trimmed_past_key_values)
+        else:
+            # 未知格式，尝试 to_legacy_cache
+            legacy = past_key_values.to_legacy_cache()
+            trimmed_cache = tuple(
+                (k[:, :, -self.num_mem:, :].contiguous(), v[:, :, -self.num_mem:, :].contiguous())
+                for k, v in legacy
+            )
 
         ####################
         # Decoder - llama
@@ -92,7 +106,7 @@ class L3LoraL3(nn.Module):
         with self.llama.disable_adapter():
             decoder_output = self.llama(
                 inputs_embeds=decoder_input_embeddings,
-                past_key_values=trimmed_past_key_values
+                past_key_values=trimmed_cache
             )
         all_logits = decoder_output.logits
 
