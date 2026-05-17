@@ -11,9 +11,11 @@ Example:
 
 import os
 import re
+import json
 import shutil
 import subprocess
 import argparse
+import torch
 from pathlib import Path
 
 
@@ -38,9 +40,54 @@ def find_latest_checkpoint(output_dir: str) -> str | None:
     return None
 
 
+def load_sharded_weights(checkpoint_dir: str) -> dict:
+    """Load weights from sharded pytorch_model files."""
+    index_file = os.path.join(checkpoint_dir, "pytorch_model.bin.index.json")
+
+    if os.path.exists(index_file):
+        # Sharded format
+        with open(index_file, "r") as f:
+            index = json.load(f)
+
+        weight_map = index.get("weight_map", {})
+        all_weights = {}
+
+        # Get unique shard files
+        shard_files = set(weight_map.values())
+
+        for shard_file in shard_files:
+            shard_path = os.path.join(checkpoint_dir, shard_file)
+            if os.path.exists(shard_path):
+                shard_weights = torch.load(shard_path, map_location="cpu")
+                all_weights.update(shard_weights)
+
+        return all_weights
+    else:
+        # Single file format
+        single_file = os.path.join(checkpoint_dir, "pytorch_model.bin")
+        if os.path.exists(single_file):
+            return torch.load(single_file, map_location="cpu")
+        return {}
+
+
+def merge_sharded_weights(checkpoint_dir: str, output_file: str) -> bool:
+    """Merge sharded weights into single pytorch_model.bin."""
+    weights = load_sharded_weights(checkpoint_dir)
+
+    if not weights:
+        print(f"ERROR: No weights found in {checkpoint_dir}")
+        return False
+
+    # Save merged weights
+    torch.save(weights, output_file)
+    print(f"Merged {len(weights)} tensors into {output_file}")
+    return True
+
+
 def convert_checkpoint(checkpoint_dir: str, output_file: str) -> bool:
     """
     Run zero_to_fp32.py to convert DeepSpeed checkpoint to pytorch_model.bin.
+    Handles both single file and sharded outputs.
 
     Returns True if successful, False otherwise.
     """
@@ -73,16 +120,31 @@ def convert_checkpoint(checkpoint_dir: str, output_file: str) -> bool:
             print(f"stderr: {result.stderr}")
             return False
 
-        # Check if pytorch_model.bin was created
-        generated_file = os.path.join(checkpoint_dir, "pytorch_model.bin")
-        if os.path.exists(generated_file):
-            # Move to output location
-            shutil.move(generated_file, output_file)
-            print(f"SUCCESS: Created {output_file}")
-            return True
-        else:
-            print(f"ERROR: pytorch_model.bin not generated")
+        # Check for sharded format (index.json exists)
+        index_file = os.path.join(checkpoint_dir, "pytorch_model.bin.index.json")
+
+        if os.path.exists(index_file):
+            print("Detected sharded format, merging into single file...")
+            # Merge shards into single file
+            if merge_sharded_weights(checkpoint_dir, output_file):
+                # Clean up sharded files
+                for f in os.listdir(checkpoint_dir):
+                    if f.startswith("pytorch_model") and f.endswith(".bin") or f == "pytorch_model.bin.index.json":
+                        if f != "pytorch_model.bin":
+                            os.remove(os.path.join(checkpoint_dir, f))
+                print(f"SUCCESS: Created merged {output_file}")
+                return True
             return False
+        else:
+            # Single file format - move to output location
+            generated_file = os.path.join(checkpoint_dir, "pytorch_model.bin")
+            if os.path.exists(generated_file):
+                shutil.move(generated_file, output_file)
+                print(f"SUCCESS: Created {output_file}")
+                return True
+            else:
+                print(f"ERROR: pytorch_model.bin not generated")
+                return False
 
     except Exception as e:
         print(f"ERROR: Exception during conversion: {e}")
