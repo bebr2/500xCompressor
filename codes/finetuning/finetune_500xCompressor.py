@@ -29,6 +29,18 @@ def read_jsonl_file(file_path):
             data.append(json_data)
     return data
 
+
+def fit_qa_tokens(q_tokens, a_tokens, max_qa_len):
+    q_tokens = q_tokens.reshape(-1)
+    a_tokens = a_tokens.reshape(-1)
+
+    if len(q_tokens) >= max_qa_len:
+        return q_tokens[:max_qa_len], a_tokens[:0]
+
+    max_answer_len = max_qa_len - len(q_tokens)
+    return q_tokens, a_tokens[:max_answer_len]
+
+
 class TextDataset(Dataset):
     def __init__(
         self,
@@ -84,11 +96,13 @@ class TextDataset(Dataset):
             a_tokens = self.tokenizer(self.text[idx]["answer"],
                                         return_tensors="pt",
                                         add_special_tokens=False).input_ids.reshape(1)
+        q_tokens, a_tokens = fit_qa_tokens(q_tokens, a_tokens, self.max_qa_len)
+        qa_tokens = torch.cat((q_tokens, a_tokens), dim=0)
 
         # input tokens: context (padding) + question + answer
         input_ids = torch.full((self.max_context_length+self.max_qa_len,), self.eos_token_id, dtype=torch.long)
         input_ids[:self.max_context_length] = c_tokens
-        input_ids[self.max_context_length:self.max_context_length+len(q_tokens)+len(a_tokens)] = torch.cat((q_tokens, a_tokens), dim=0)
+        input_ids[self.max_context_length:self.max_context_length+len(qa_tokens)] = qa_tokens
 
         # target tokens: answer for the question
         target_tokens = torch.full((self.max_qa_len,), -100, dtype=torch.long)
