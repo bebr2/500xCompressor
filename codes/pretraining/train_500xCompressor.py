@@ -201,6 +201,7 @@ if __name__ == "__main__":
         eval_accumulation_steps=args.eval_accumulation_steps,
         logging_dir=args.logging_dir,
         logging_steps=1,
+        report_to=["wandb"],
         deepspeed=args.deepspeed_config,
         learning_rate=args.learning_rate,
         save_total_limit=args.save_total_limit,
