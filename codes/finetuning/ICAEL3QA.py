@@ -8,13 +8,12 @@ def load_lora_parameters(model, lora_params_path):
 
     with torch.no_grad():
         for name, param in model.named_parameters():
+            if 'lora' not in name and 'memory_embeddings' not in name:
+                continue
             if name in lora_params:
-                if 'lora' in name or 'memory_embeddings' in name:
-                    param.copy_(lora_params[name])
-                else:
-                    print(f"No saved parameter for {name}")
-            elif "lora" in name:
-                print(f"No saved parameter for {name}")
+                param.copy_(lora_params[name])
+            else:
+                print(f"WARNING: No saved trainable parameter for {name}")
 
 class ICAEL3QA(nn.Module):
     def __init__(

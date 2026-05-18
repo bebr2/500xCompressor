@@ -233,8 +233,8 @@ if __name__ == "__main__":
     # ====================
     # Training
     # ====================
-    # give the detailed information for the error
-    torch.autograd.set_detect_anomaly(True)
+    # Keep anomaly detection off for normal training; it adds autograd overhead.
+    torch.autograd.set_detect_anomaly(False)
 
     training_args = TrainingArguments(
         output_dir=args.output_dir,

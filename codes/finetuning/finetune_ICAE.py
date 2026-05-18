@@ -209,7 +209,7 @@ if __name__ == "__main__":
     # ====================
     # Training
     # ====================
-    torch.autograd.set_detect_anomaly(True)
+    torch.autograd.set_detect_anomaly(False)
 
     training_args = TrainingArguments(
         output_dir=args.output_dir,

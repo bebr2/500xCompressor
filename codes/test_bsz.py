@@ -91,13 +91,22 @@ def create_ds_config(path):
             "contiguous_gradients": True,
             "stage3_gather_16bit_weights_on_model_save": False
         },
-        "gradient_accumulation_steps": 1,
+        "gradient_accumulation_steps": "auto",
         "train_batch_size": "auto",
         "train_micro_batch_size_per_gpu": "auto",
         "bf16": {"enabled": True}
     }
     with open(path, "w") as f:
         json.dump(config, f)
+
+
+def resolve_ds_config(args, temp_dir):
+    if args.deepspeed_config:
+        return args.deepspeed_config
+
+    ds_config = os.path.join(temp_dir, "ds.json")
+    create_ds_config(ds_config)
+    return ds_config
 
 
 def create_model(args, lora_config, device):
@@ -185,8 +194,7 @@ def main():
         model = create_model(args, lora_config, device)
         model.config = model.llama.config
 
-        ds_config = os.path.join(temp_dir, "ds.json")
-        create_ds_config(ds_config)
+        ds_config = resolve_ds_config(args, temp_dir)
 
         dataset = create_dataset(args, eos_token_id)
 
@@ -245,6 +253,7 @@ def parse_args():
     parser.add_argument("--compressor", choices=["500x", "icae"], default="500x")
     parser.add_argument("--model_path", required=True)
     parser.add_argument("--lora_path", default=None)
+    parser.add_argument("--deepspeed_config", default=None)
     parser.add_argument("--batch_size", type=int, default=1)
     parser.add_argument("--per_device_eval_batch_size", type=int, default=48)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=8)
