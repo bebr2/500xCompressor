@@ -5,10 +5,9 @@
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes
 
 MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/Qwen3-8B"
-LORA_PATH="/mnt/hdfs/wangchangyue/500xCompressor/output/ICAE_pretrain-Qwen3-8B/checkpoint_best/pytorch_model.bin"
-DEEPSPEED_CONFIG="/mnt/hdfs/wangchangyue/500xCompressor/codes/deepspeed_configurations.json"
+LORA_PATH="/mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain-Qwen3-8B/checkpoint_best/pytorch_model.bin"
 STAGE="finetune"       # pretrain or finetune
-COMPRESSOR="icae"      # 500x or icae
+COMPRESSOR="500x"      # 500x or icae
 MAX_LENGTH=512
 MAX_QA_LEN=46
 GRAD_ACCUM=8
@@ -23,7 +22,6 @@ MASTER_PORT=11470
 echo "=============================================="
 echo "Finding max batch size with DeepSpeed ZeRO-3"
 echo "Model: $MODEL_PATH"
-echo "DeepSpeed config: $DEEPSPEED_CONFIG"
 echo "Stage: $STAGE"
 echo "Compressor: $COMPRESSOR"
 echo "Max context length: $MAX_LENGTH"
@@ -57,7 +55,6 @@ while [ $LOW -le $HIGH ]; do
         --stage "$STAGE" \
         --compressor "$COMPRESSOR" \
         --model_path "$MODEL_PATH" \
-        --deepspeed_config "$DEEPSPEED_CONFIG" \
         --batch_size $MID \
         --per_device_eval_batch_size "$EVAL_BSZ" \
         --gradient_accumulation_steps "$GRAD_ACCUM" \
