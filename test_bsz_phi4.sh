@@ -4,14 +4,14 @@
 
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes
 
-MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/Qwen3-8B"
-LORA_PATH="/mnt/hdfs/wangchangyue/500xCompressor/output/ICAE_pretrain-Qwen3-8B/checkpoint_best/pytorch_model.bin"
+MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/phi-4"
+LORA_PATH="/mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain/checkpoint_best/pytorch_model.bin"
 STAGE="finetune"       # pretrain or finetune
-COMPRESSOR="icae"      # 500x or icae
+COMPRESSOR="500x"      # 500x or icae
 MAX_LENGTH=512
-MAX_QA_LEN=46
+MAX_QA_LEN=512
 START_BSZ=1
-MAX_BSZ=8
+MAX_BSZ=4
 NUM_GPUS=8
 MASTER_PORT=11470
 

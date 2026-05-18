@@ -17,7 +17,7 @@ deepspeed  --master_port=11470 finetune_500xCompressor.py \
     --project_name "500xCompressor-finetuning" \
     --deepspeed_config /mnt/hdfs/wangchangyue/500xCompressor/codes/deepspeed_configurations.json \
     --num_train_epochs 10 \
-    --per_device_train_batch_size 2 \
+    --per_device_train_batch_size 6 \
     --learning_rate 5e-5 \
     --save_steps 300 \
     --eval_steps 300 \
