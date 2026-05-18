@@ -192,23 +192,33 @@ def main():
 
         training_args = TrainingArguments(
             output_dir=temp_dir,
-            max_steps=2,
+            max_steps=args.max_steps,
             per_device_train_batch_size=args.batch_size,
+            per_device_eval_batch_size=args.per_device_eval_batch_size,
+            gradient_accumulation_steps=args.gradient_accumulation_steps,
             deepspeed=ds_config,
             save_strategy="no",
+            eval_strategy="steps" if args.include_eval else "no",
+            eval_steps=1,
             report_to="none",
             bf16=True,
             dataloader_num_workers=0,
         )
 
-        trainer = Trainer(model=model, args=training_args, train_dataset=dataset)
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=dataset,
+            eval_dataset=dataset if args.include_eval else None
+        )
         trainer.train()
 
         if local_rank == 0:
             print(
                 f"SUCCESS: stage={args.stage}, compressor={args.compressor}, "
                 f"batch_size={args.batch_size}, max_length={args.max_length}, "
-                f"max_qa_len={args.max_qa_len}"
+                f"max_qa_len={args.max_qa_len}, grad_accum={args.gradient_accumulation_steps}, "
+                f"include_eval={args.include_eval}, eval_batch_size={args.per_device_eval_batch_size}"
             )
 
         sys.exit(0)
@@ -236,6 +246,10 @@ def parse_args():
     parser.add_argument("--model_path", required=True)
     parser.add_argument("--lora_path", default=None)
     parser.add_argument("--batch_size", type=int, default=1)
+    parser.add_argument("--per_device_eval_batch_size", type=int, default=48)
+    parser.add_argument("--gradient_accumulation_steps", type=int, default=8)
+    parser.add_argument("--max_steps", type=int, default=2)
+    parser.add_argument("--include_eval", action="store_true")
     parser.add_argument("--num_mem", type=int, default=256)
     parser.add_argument("--max_length", type=int, default=2048)
     parser.add_argument("--max_qa_len", type=int, default=46)

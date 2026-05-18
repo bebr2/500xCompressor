@@ -92,6 +92,14 @@ def remove_path(path: str) -> None:
         os.remove(path)
 
 
+def try_remove_path(path: str) -> None:
+    """Best-effort cleanup that should not make a successful conversion fail."""
+    try:
+        remove_path(path)
+    except OSError as e:
+        print(f"WARNING: Failed to remove temporary path {path}: {e}")
+
+
 def repair_sharded_output_dir(model_dir: str) -> bool:
     """Replace an existing sharded pytorch_model.bin directory with one bin file."""
     index_file = os.path.join(model_dir, "pytorch_model.bin.index.json")
@@ -162,7 +170,7 @@ def convert_checkpoint(checkpoint_dir: str, output_file: str) -> bool:
             if os.path.exists(index_file):
                 print("Detected sharded directory format, merging into single file...")
                 if merge_sharded_weights(generated_path, output_file):
-                    shutil.rmtree(generated_path)
+                    try_remove_path(generated_path)
                     print(f"SUCCESS: Created merged {output_file}")
                     return True
                 return False
@@ -181,7 +189,7 @@ def convert_checkpoint(checkpoint_dir: str, output_file: str) -> bool:
                 for f in os.listdir(checkpoint_dir):
                     if f.startswith("pytorch_model") and f.endswith(".bin") or f == "pytorch_model.bin.index.json":
                         if f != "pytorch_model.bin":
-                            os.remove(os.path.join(checkpoint_dir, f))
+                            try_remove_path(os.path.join(checkpoint_dir, f))
                 print(f"SUCCESS: Created merged {output_file}")
                 return True
             return False
