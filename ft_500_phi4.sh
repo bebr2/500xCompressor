@@ -4,11 +4,11 @@ python convert_checkpoint.py /mnt/hdfs/wangchangyue/500xCompressor/output/500xCo
 
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes/finetuning
 
-deepspeed  --master_port=11470 finetune_500xCompressor.py \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 deepspeed  --master_port=11470 finetune_500xCompressor.py \
     --model_path /mnt/hdfs/wangchangyue/LLM/phi-4 \
     --num_mem 256 \
     --max_length 512 \
-    --max_qa_len 512 \
+    --max_qa_len 46 \
     --train_text_path /mnt/hdfs/wangchangyue/500xCompressor/data/train_qa.jsonl \
     --test_text_path /mnt/hdfs/wangchangyue/500xCompressor/data/test_qa.jsonl \
     --lora_path /mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain/checkpoint_best/pytorch_model.bin \
