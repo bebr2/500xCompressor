@@ -4,14 +4,18 @@
 
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes
 
-MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/phi-4"
-LORA_PATH="/mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain/checkpoint_best/pytorch_model.bin"
+MODEL_PATH="/mnt/hdfs/wangchangyue/LLM/Qwen3-8B"
+LORA_PATH="/mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain-Qwen3-8B/checkpoint_best/pytorch_model.bin"
 STAGE="finetune"       # pretrain or finetune
 COMPRESSOR="500x"      # 500x or icae
 MAX_LENGTH=512
-MAX_QA_LEN=512
+MAX_QA_LEN=46
+GRAD_ACCUM=8
+MAX_STEPS=2
+INCLUDE_EVAL=0
+EVAL_BSZ=48
 START_BSZ=1
-MAX_BSZ=4
+MAX_BSZ=8
 NUM_GPUS=8
 MASTER_PORT=11470
 
@@ -21,9 +25,15 @@ echo "Model: $MODEL_PATH"
 echo "Stage: $STAGE"
 echo "Compressor: $COMPRESSOR"
 echo "Max context length: $MAX_LENGTH"
+echo "Gradient accumulation steps: $GRAD_ACCUM"
+echo "Max optimizer steps: $MAX_STEPS"
+echo "Include eval: $INCLUDE_EVAL"
 if [ "$STAGE" = "finetune" ]; then
     echo "Max QA length: $MAX_QA_LEN"
     echo "LoRA path: $LORA_PATH"
+fi
+if [ "$INCLUDE_EVAL" = "1" ]; then
+    echo "Eval batch size: $EVAL_BSZ"
 fi
 echo "GPUs: $NUM_GPUS"
 echo "Search range: $START_BSZ - $MAX_BSZ"
@@ -46,12 +56,19 @@ while [ $LOW -le $HIGH ]; do
         --compressor "$COMPRESSOR" \
         --model_path "$MODEL_PATH" \
         --batch_size $MID \
+        --per_device_eval_batch_size "$EVAL_BSZ" \
+        --gradient_accumulation_steps "$GRAD_ACCUM" \
+        --max_steps "$MAX_STEPS" \
         --num_mem 256 \
         --max_length "$MAX_LENGTH" \
         --max_qa_len "$MAX_QA_LEN")
 
     if [ "$STAGE" = "finetune" ]; then
         CMD+=(--lora_path "$LORA_PATH")
+    fi
+
+    if [ "$INCLUDE_EVAL" = "1" ]; then
+        CMD+=(--include_eval)
     fi
 
     "${CMD[@]}" > "$LOG_FILE" 2>&1
