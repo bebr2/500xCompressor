@@ -12,7 +12,7 @@ if __name__ == "__main__":
     device = torch.device("cuda")
 
     # base LLM name in huggingface
-    llama_path = "meta-llama/Meta-Llama-3-8B-Instruct"
+    llama_path = "/mnt/hdfs/wangchangyue/LLM/Qwen3-8B"
     # cache path to save the LLM
     cache_dir = None
     # huggingface token to use llama model
@@ -20,9 +20,9 @@ if __name__ == "__main__":
     # llama lora parameters for regeneration
     lora_path_regen = "<to be filled>"
     # llama lora parameters for question-answering
-    lora_path_qa = "<to be filled>"
+    lora_path_qa = "/mnt/hdfs/wangchangyue/500xCompressor/output/ICAE_finetune-Qwen3-8B/test/pytorch_model.bin"
     # number of tokens used for compression
-    num_mem = 4 
+    num_mem = 256
     # "regeneration" or "qa"
     mode = "qa"
 
