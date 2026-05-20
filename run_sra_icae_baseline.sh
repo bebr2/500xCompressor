@@ -23,7 +23,7 @@ REPO_ROOT="${REPO_ROOT:-/mnt/hdfs/wangchangyue/500xCompressor}"
 RERANK_ROOT="${RERANK_ROOT:-/mnt/hdfs/wangchangyue/Rerank}"
 SKILLRAG_ROOT="${SKILLRAG_ROOT:-/mnt/hdfs/wangchangyue/skillrag}"
 CORPUS_PATH="${CORPUS_PATH:-${SKILLRAG_ROOT}/data/bench/corpus/corpus.json}"
-OUTPUT_ROOT="${OUTPUT_ROOT:-${RERANK_ROOT}/results}"
+OUTPUT_ROOT="${OUTPUT_ROOT:-${REPO_ROOT}/results_sra_baseline}"
 
 if [ ! -f "${CORPUS_PATH}" ] && [ -f "${RERANK_ROOT}/prepare/output/corpus.json" ]; then
   CORPUS_PATH="${RERANK_ROOT}/prepare/output/corpus.json"

@@ -1,0 +1,3071 @@
+{
+  "dataset": "champ",
+  "method": "golden_skill",
+  "model": "phi-4-icae",
+  "metrics": {
+    "accuracy": 0.3094170403587444,
+    "correct": 69,
+    "total": 223,
+    "per_category": {
+      "champ_000": {
+        "accuracy": 0.3333333333333333,
+        "correct": 1,
+        "total": 3
+      },
+      "champ_001": {
+        "accuracy": 0.5,
+        "correct": 2,
+        "total": 4
+      },
+      "champ_002": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 3
+      },
+      "champ_003": {
+        "accuracy": 0.16666666666666666,
+        "correct": 1,
+        "total": 6
+      },
+      "champ_004": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "total": 2
+      },
+      "champ_005": {
+        "accuracy": 0.11538461538461539,
+        "correct": 3,
+        "total": 26
+      },
+      "champ_006": {
+        "accuracy": 0.1875,
+        "correct": 3,
+        "total": 16
+      },
+      "champ_007": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 7
+      },
+      "champ_008": {
+        "accuracy": 0.6666666666666666,
+        "correct": 2,
+        "total": 3
+      },
+      "champ_009": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_010": {
+        "accuracy": 0.375,
+        "correct": 12,
+        "total": 32
+      },
+      "champ_011": {
+        "accuracy": 0.4,
+        "correct": 2,
+        "total": 5
+      },
+      "champ_012": {
+        "accuracy": 0.17391304347826086,
+        "correct": 4,
+        "total": 23
+      },
+      "champ_013": {
+        "accuracy": 0.4117647058823529,
+        "correct": 7,
+        "total": 17
+      },
+      "champ_014": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_015": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_016": {
+        "accuracy": 0.08333333333333333,
+        "correct": 1,
+        "total": 12
+      },
+      "champ_017": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_018": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_019": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_020": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_021": {
+        "accuracy": 0.3333333333333333,
+        "correct": 1,
+        "total": 3
+      },
+      "champ_022": {
+        "accuracy": 0.5789473684210527,
+        "correct": 11,
+        "total": 19
+      },
+      "champ_023": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_024": {
+        "accuracy": 0.5,
+        "correct": 3,
+        "total": 6
+      },
+      "champ_025": {
+        "accuracy": 0.6666666666666666,
+        "correct": 4,
+        "total": 6
+      },
+      "champ_026": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_027": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_028": {
+        "accuracy": 0.16666666666666666,
+        "correct": 1,
+        "total": 6
+      },
+      "champ_029": {
+        "accuracy": 0.75,
+        "correct": 3,
+        "total": 4
+      },
+      "champ_030": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 5
+      },
+      "champ_031": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_032": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "total": 4
+      },
+      "champ_033": {
+        "accuracy": 0.2,
+        "correct": 1,
+        "total": 5
+      },
+      "champ_034": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_035": {
+        "accuracy": 0.6,
+        "correct": 3,
+        "total": 5
+      },
+      "champ_036": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_037": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 3
+      },
+      "champ_038": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "champ_039": {
+        "accuracy": 1.0,
+        "correct": 3,
+        "total": 3
+      },
+      "champ_040": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_041": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_042": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_043": {
+        "accuracy": 0.6666666666666666,
+        "correct": 2,
+        "total": 3
+      },
+      "champ_044": {
+        "accuracy": 0.2857142857142857,
+        "correct": 2,
+        "total": 7
+      },
+      "champ_045": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_046": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "total": 4
+      },
+      "champ_047": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_048": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "champ_049": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_050": {
+        "accuracy": 1.0,
+        "correct": 4,
+        "total": 4
+      },
+      "champ_051": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_052": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_053": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "champ_054": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_055": {
+        "accuracy": 0.5,
+        "correct": 2,
+        "total": 4
+      },
+      "champ_056": {
+        "accuracy": 0.3333333333333333,
+        "correct": 1,
+        "total": 3
+      },
+      "champ_057": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "total": 2
+      },
+      "champ_058": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "total": 2
+      },
+      "champ_059": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_060": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_061": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 9
+      },
+      "champ_062": {
+        "accuracy": 0.42857142857142855,
+        "correct": 3,
+        "total": 7
+      },
+      "champ_063": {
+        "accuracy": 0.5,
+        "correct": 3,
+        "total": 6
+      },
+      "champ_064": {
+        "accuracy": 0.16666666666666666,
+        "correct": 1,
+        "total": 6
+      },
+      "champ_065": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 7
+      },
+      "champ_066": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "champ_067": {
+        "accuracy": 0.4,
+        "correct": 2,
+        "total": 5
+      },
+      "champ_068": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "champ_069": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_070": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_071": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "total": 2
+      },
+      "champ_072": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_073": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 3
+      },
+      "champ_074": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_075": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 3
+      },
+      "champ_076": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_077": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 3
+      },
+      "champ_078": {
+        "accuracy": 1.0,
+        "correct": 3,
+        "total": 3
+      },
+      "champ_079": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_080": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 2
+      },
+      "champ_081": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 3
+      },
+      "champ_082": {
+        "accuracy": 0.5,
+        "correct": 1,
+        "total": 2
+      },
+      "champ_083": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_084": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_085": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_086": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      },
+      "champ_087": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 1
+      },
+      "champ_088": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "total": 1
+      }
+    }
+  },
+  "details": [
+    {
+      "instance_id": "champ_00000",
+      "prediction": "counting each digit separately, we get",
+      "ground_truth": "239",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "counting each digit separately, we get",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00001",
+      "prediction": "C(n-1, n-2)",
+      "ground_truth": "2^(n-1)",
+      "skill_annotations": [
+        "champ_013"
+      ],
+      "extracted_answer": "C(n-1, n-2)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00002",
+      "prediction": "(n*(n-3))/",
+      "ground_truth": "n(n-3)/2",
+      "skill_annotations": [
+        "champ_016",
+        "champ_030"
+      ],
+      "extracted_answer": "(n*(n-3))/",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00003",
+      "prediction": "n!",
+      "ground_truth": "(n+1)^(n-1)",
+      "skill_annotations": [
+        "champ_013"
+      ],
+      "extracted_answer": "n!",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00004",
+      "prediction": "C(n+1, n)",
+      "ground_truth": "4^n",
+      "skill_annotations": [
+        "champ_016",
+        "champ_012",
+        "champ_041",
+        "champ_037"
+      ],
+      "extracted_answer": "C(n+1, n)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00005",
+      "prediction": "\\( \\frac{5}{14} \\)",
+      "ground_truth": "5/14, or approximately 35.7%",
+      "skill_annotations": [
+        "champ_016",
+        "champ_030"
+      ],
+      "extracted_answer": "\\( \\frac{5}{14} \\)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00006",
+      "prediction": "f(n) = f(n-",
+      "ground_truth": "89",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "f(n) = f(n-",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00007",
+      "prediction": "C(n, 2m) * 2^(n-2m)",
+      "ground_truth": "C(n+1, 2m+1)",
+      "skill_annotations": [
+        "champ_016"
+      ],
+      "extracted_answer": "C(n, 2m) * 2^(n-2m)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00009",
+      "prediction": "5151",
+      "ground_truth": "5050",
+      "skill_annotations": [
+        "champ_033",
+        "champ_012"
+      ],
+      "extracted_answer": "5151",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00010",
+      "prediction": "n(n+1)2",
+      "ground_truth": "n(n+1)*2^(n-2)",
+      "skill_annotations": [
+        "champ_016",
+        "champ_013",
+        "champ_012"
+      ],
+      "extracted_answer": "n(n+1)2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00011",
+      "prediction": "C(10,5) = 252",
+      "ground_truth": "C(10, 5), or equivalently 252",
+      "skill_annotations": [
+        "champ_016"
+      ],
+      "extracted_answer": "C(10,5) = 252",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00012",
+      "prediction": "34",
+      "ground_truth": "87",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "34",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00013",
+      "prediction": "30",
+      "ground_truth": "30",
+      "skill_annotations": [
+        "champ_013",
+        "champ_039",
+        "champ_012"
+      ],
+      "extracted_answer": "30",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00014",
+      "prediction": "C(n-r+1, r) / C(n, r)",
+      "ground_truth": "(n+1)/(r+1)",
+      "skill_annotations": [
+        "champ_016",
+        "champ_030"
+      ],
+      "extracted_answer": "C(n-r+1, r) / C(n, r)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00015",
+      "prediction": "2^(n-1)",
+      "ground_truth": "(4^n+2^n)/2",
+      "skill_annotations": [
+        "champ_016",
+        "champ_013",
+        "champ_028"
+      ],
+      "extracted_answer": "2^(n-1)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00016",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_033"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00017",
+      "prediction": "n!",
+      "ground_truth": "n!",
+      "skill_annotations": [
+        "champ_013"
+      ],
+      "extracted_answer": "n!",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00018",
+      "prediction": "counting",
+      "ground_truth": "239",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "counting",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00019",
+      "prediction": "2 * C(10, 5)",
+      "ground_truth": "2*C(10, 5), or equivalently 504",
+      "skill_annotations": [
+        "champ_016"
+      ],
+      "correct": true,
+      "match_type": "symbolic",
+      "extracted_answer": "2 * C(10, 5)"
+    },
+    {
+      "instance_id": "champ_00020",
+      "prediction": "3^5 - 2*2*3^3 + 2^2",
+      "ground_truth": "164",
+      "skill_annotations": [
+        "champ_013",
+        "champ_012"
+      ],
+      "extracted_answer": "3^5 - 2*2*3^3 + 2^2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00021",
+      "prediction": "C(n, 4)",
+      "ground_truth": "C(n, 4), or an equivalent form such as n(n-1)(n-2)(n-3)/4!",
+      "skill_annotations": [
+        "champ_016"
+      ],
+      "extracted_answer": "C(n, 4)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00022",
+      "prediction": "2! * C(4,2) * C(2,2)",
+      "ground_truth": "2^floor(n/2)*floor(n/2)!",
+      "skill_annotations": [
+        "champ_013"
+      ],
+      "extracted_answer": "2! * C(4,2) * C(2,2)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00023",
+      "prediction": "666,666",
+      "ground_truth": "2001000",
+      "skill_annotations": [
+        "champ_033",
+        "champ_012"
+      ],
+      "extracted_answer": "666,666",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00024",
+      "prediction": "56",
+      "ground_truth": "120",
+      "skill_annotations": [
+        "champ_016",
+        "champ_030",
+        "champ_037"
+      ],
+      "extracted_answer": "56",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00025",
+      "prediction": "75",
+      "ground_truth": "75",
+      "skill_annotations": [
+        "champ_013",
+        "champ_012"
+      ],
+      "extracted_answer": "75",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00026",
+      "prediction": "2 * (n+1) * n * (n-1) / 2",
+      "ground_truth": "sum_(i=1)^n i^3, or equivalently (n(n+1)/2)^2",
+      "skill_annotations": [
+        "champ_013",
+        "champ_012"
+      ],
+      "extracted_answer": "2 * (n+1) * n * (n-1) / 2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00027",
+      "prediction": "(n-k-1)",
+      "ground_truth": "(n-k+3)*2^(n-k-2)",
+      "skill_annotations": [
+        "champ_013",
+        "champ_012"
+      ],
+      "extracted_answer": "(n-k-1)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00028",
+      "prediction": "(2n)! / (2^n * n!)",
+      "ground_truth": "(2n)!/(2^n*n!)",
+      "skill_annotations": [
+        "champ_013",
+        "champ_039"
+      ],
+      "correct": true,
+      "match_type": "symbolic",
+      "extracted_answer": "(2n)! / (2^n * n!)"
+    },
+    {
+      "instance_id": "champ_00029",
+      "prediction": "(n-1)! / 2",
+      "ground_truth": "n!/(2n)",
+      "skill_annotations": [
+        "champ_013",
+        "champ_039"
+      ],
+      "correct": true,
+      "match_type": "symbolic",
+      "extracted_answer": "(n-1)! / 2"
+    },
+    {
+      "instance_id": "champ_00030",
+      "prediction": "2n(n+1)",
+      "ground_truth": "sum_(i=1)^n i^2, or equivalently n(n+1)(2n+1)/6",
+      "skill_annotations": [
+        "champ_013",
+        "champ_012"
+      ],
+      "extracted_answer": "2n(n+1)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00031",
+      "prediction": "C(",
+      "ground_truth": "240",
+      "skill_annotations": [
+        "champ_016",
+        "champ_013",
+        "champ_012",
+        "champ_030"
+      ],
+      "extracted_answer": "C(",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00032",
+      "prediction": "134",
+      "ground_truth": "85",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "134",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00033",
+      "prediction": "76",
+      "ground_truth": "76",
+      "skill_annotations": [
+        "champ_013",
+        "champ_012"
+      ],
+      "extracted_answer": "76",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00034",
+      "prediction": "f(11) = 144",
+      "ground_truth": "144",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "f(11) = 144",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00035",
+      "prediction": "144",
+      "ground_truth": "144",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "144",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00036",
+      "prediction": "2^(n-1)",
+      "ground_truth": "2^(n-1)",
+      "skill_annotations": [
+        "champ_013"
+      ],
+      "extracted_answer": "2^(n-1)",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00037",
+      "prediction": "f(n) = f(n-1) + f(n-2)",
+      "ground_truth": "144",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "f(n) = f(n-1) + f(n-2)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00038",
+      "prediction": "256",
+      "ground_truth": "634",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "256",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00040",
+      "prediction": "[-b/a, -c",
+      "ground_truth": "[-1, 1]",
+      "skill_annotations": [
+        "champ_081"
+      ],
+      "extracted_answer": "[-b/a, -c",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00041",
+      "prediction": "3",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "3",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00042",
+      "prediction": "(1 + 1/n)^n",
+      "ground_truth": "2^n",
+      "skill_annotations": [
+        "champ_063"
+      ],
+      "extracted_answer": "(1 + 1/n)^n",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00043",
+      "prediction": "C_n^2",
+      "ground_truth": "sum_(k=1)^n 1/k",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "C_n^2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00044",
+      "prediction": "-27",
+      "ground_truth": "-9",
+      "skill_annotations": [
+        "champ_005",
+        "champ_007"
+      ],
+      "extracted_answer": "-27",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00045",
+      "prediction": "24",
+      "ground_truth": "100 (i.e., all values)",
+      "skill_annotations": [
+        "champ_006"
+      ],
+      "extracted_answer": "24",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00046",
+      "prediction": "a^4+b^4+c",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_015"
+      ],
+      "extracted_answer": "a^4+b^4+c",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00047",
+      "prediction": "3/2",
+      "ground_truth": "3/2",
+      "skill_annotations": [
+        "champ_004"
+      ],
+      "extracted_answer": "3/2",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00049",
+      "prediction": "C=a=b",
+      "ground_truth": "sqrt(3)/3, or equivalently 1/sqrt(3)",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "C=a=b",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00050",
+      "prediction": "2",
+      "ground_truth": "2 inequalities",
+      "skill_annotations": [
+        "champ_088"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "2"
+    },
+    {
+      "instance_id": "champ_00051",
+      "prediction": "1/2",
+      "ground_truth": "1/2",
+      "skill_annotations": [
+        "champ_086"
+      ],
+      "extracted_answer": "1/2",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00052",
+      "prediction": "1/2",
+      "ground_truth": "3/2",
+      "skill_annotations": [
+        "champ_005",
+        "champ_007"
+      ],
+      "extracted_answer": "1/2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00053",
+      "prediction": "(1/n)^(1/(n+1))",
+      "ground_truth": "1/(n+1)",
+      "skill_annotations": [
+        "champ_066"
+      ],
+      "extracted_answer": "(1/n)^(1/(n+1))",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00054",
+      "prediction": "2",
+      "ground_truth": "2",
+      "skill_annotations": [
+        "champ_084",
+        "champ_005"
+      ],
+      "extracted_answer": "2",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00055",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_063"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00056",
+      "prediction": "C^4 - C^3*A - C^3*B + C^2*A*B",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "C^4 - C^3*A - C^3*B + C^2*A*B",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00057",
+      "prediction": "2",
+      "ground_truth": "100 (i.e., all values)",
+      "skill_annotations": [
+        "champ_005"
+      ],
+      "extracted_answer": "2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00058",
+      "prediction": "2",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_082"
+      ],
+      "extracted_answer": "2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00059",
+      "prediction": "C^3-a^2*b-b^2*c-c^2*a",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "C^3-a^2*b-b^2*c-c^2*a",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00061",
+      "prediction": "2^m",
+      "ground_truth": "2^(m+1)",
+      "skill_annotations": [
+        "champ_087",
+        "champ_068"
+      ],
+      "extracted_answer": "2^m",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00062",
+      "prediction": "1/3",
+      "ground_truth": "1/3",
+      "skill_annotations": [
+        "champ_026"
+      ],
+      "extracted_answer": "1/3",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00063",
+      "prediction": "1",
+      "ground_truth": "n/(n-1)",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00064",
+      "prediction": "n^2",
+      "ground_truth": "n^2/(n-1)",
+      "skill_annotations": [
+        "champ_004"
+      ],
+      "extracted_answer": "n^2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00066",
+      "prediction": "n <= 2",
+      "ground_truth": "98 values",
+      "skill_annotations": [
+        "champ_083"
+      ],
+      "extracted_answer": "n <= 2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00069",
+      "prediction": "0",
+      "ground_truth": "-1",
+      "skill_annotations": [
+        "champ_005",
+        "champ_063",
+        "champ_064"
+      ],
+      "extracted_answer": "0",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00070",
+      "prediction": "3",
+      "ground_truth": "sqrt(3)",
+      "skill_annotations": [
+        "champ_066"
+      ],
+      "extracted_answer": "3",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00073",
+      "prediction": "sqrt(2)",
+      "ground_truth": "2",
+      "skill_annotations": [
+        "champ_068"
+      ],
+      "extracted_answer": "sqrt(2)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00074",
+      "prediction": "two",
+      "ground_truth": "2 inequalities",
+      "skill_annotations": [
+        "champ_007"
+      ],
+      "extracted_answer": "two",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00075",
+      "prediction": "2^(n-1)",
+      "ground_truth": "2^n/(n+1)",
+      "skill_annotations": [
+        "champ_009"
+      ],
+      "extracted_answer": "2^(n-1)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00077",
+      "prediction": "C^3/a^3+b^",
+      "ground_truth": "1",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "C^3/a^3+b^",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00079",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_001"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00080",
+      "prediction": "1/n",
+      "ground_truth": "1/n",
+      "skill_annotations": [
+        "champ_001"
+      ],
+      "extracted_answer": "1/n",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00081",
+      "prediction": "8",
+      "ground_truth": "8",
+      "skill_annotations": [
+        "champ_063"
+      ],
+      "extracted_answer": "8",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00082",
+      "prediction": "2",
+      "ground_truth": "100 (i.e., all values)",
+      "skill_annotations": [
+        "champ_009"
+      ],
+      "extracted_answer": "2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00083",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_082"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00084",
+      "prediction": "2",
+      "ground_truth": "1",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00085",
+      "prediction": "C^3 - a^2*b - b^2*c - c^2*a",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_061"
+      ],
+      "extracted_answer": "C^3 - a^2*b - b^2*c - c^2*a",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00086",
+      "prediction": "Yes",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_064"
+      ],
+      "extracted_answer": "Yes",
+      "correct": false,
+      "match_type": "yes_no"
+    },
+    {
+      "instance_id": "champ_00087",
+      "prediction": "3/2",
+      "ground_truth": "2",
+      "skill_annotations": [
+        "champ_085"
+      ],
+      "correct": true,
+      "match_type": "numeric",
+      "extracted_answer": "3/2"
+    },
+    {
+      "instance_id": "champ_00088",
+      "prediction": "x_1=x_2=...=x_n",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_015"
+      ],
+      "extracted_answer": "x_1=x_2=...=x_n",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00090",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_052",
+        "champ_010"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00091",
+      "prediction": "at least one",
+      "ground_truth": "At least 1 number",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "at least one",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00092",
+      "prediction": "1",
+      "ground_truth": "7125",
+      "skill_annotations": [
+        "champ_034",
+        "champ_038",
+        "champ_024"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00093",
+      "prediction": "76",
+      "ground_truth": "76",
+      "skill_annotations": [
+        "champ_021"
+      ],
+      "extracted_answer": "76",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00094",
+      "prediction": "1",
+      "ground_truth": "11",
+      "skill_annotations": [
+        "champ_006",
+        "champ_010"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00095",
+      "prediction": "b^4 + 4^b = (b^2 + 2^b - 2b)(b^2 + 2^b +",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_031"
+      ],
+      "extracted_answer": "b^4 + 4^b = (b^2 + 2^b - 2b)(b^2 + 2^b +",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00096",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_035",
+        "champ_022"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00097",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_025",
+        "champ_022"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00098",
+      "prediction": "7744",
+      "ground_truth": "7744",
+      "skill_annotations": [
+        "champ_022"
+      ],
+      "extracted_answer": "7744",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00099",
+      "prediction": "(5, 2), (5, -2), (-5, 2), (-5, -2), (7, 4), (7, -4), (-7, 4), (-7, -4)",
+      "ground_truth": "No integer solutions",
+      "skill_annotations": [
+        "champ_032",
+        "champ_010"
+      ],
+      "extracted_answer": "(5, 2), (5, -2), (-5, 2), (-5, -2), (7, 4), (7, -4), (-7, 4), (-7, -4)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00100",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_006",
+        "champ_029"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00101",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_032",
+        "champ_010"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00102",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_028",
+        "champ_010"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00103",
+      "prediction": "No integer solutions",
+      "ground_truth": "No integer solutions",
+      "skill_annotations": [
+        "champ_024",
+        "champ_010"
+      ],
+      "extracted_answer": "No integer solutions",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00104",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_025"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00105",
+      "prediction": "x = 1, y =",
+      "ground_truth": "No positive integer solutions",
+      "skill_annotations": [
+        "champ_005",
+        "champ_006",
+        "champ_048",
+        "champ_002",
+        "champ_046"
+      ],
+      "extracted_answer": "x = 1, y =",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00106",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_022",
+        "champ_035"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00108",
+      "prediction": "At least one",
+      "ground_truth": "At least 1 number",
+      "skill_annotations": [
+        "champ_032",
+        "champ_036"
+      ],
+      "extracted_answer": "At least one",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00109",
+      "prediction": "10",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_006",
+        "champ_043",
+        "champ_038"
+      ],
+      "extracted_answer": "10",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00111",
+      "prediction": "x = 3",
+      "ground_truth": "3 is the only possible value",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "x = 3",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00112",
+      "prediction": "1, 5, 6, 25, 76, 376, 625, 9376",
+      "ground_truth": "376 and 625",
+      "skill_annotations": [
+        "champ_021"
+      ],
+      "extracted_answer": "1, 5, 6, 25, 76, 376, 625, 9376",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00113",
+      "prediction": "No",
+      "ground_truth": "No integer solutions",
+      "skill_annotations": [
+        "champ_010",
+        "champ_032"
+      ],
+      "extracted_answer": "No",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00114",
+      "prediction": "x = 3, y = 1",
+      "ground_truth": "x=2, y=1",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "x = 3, y = 1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00115",
+      "prediction": "0",
+      "ground_truth": "2",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "0",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00116",
+      "prediction": "1971",
+      "ground_truth": "512",
+      "skill_annotations": [
+        "champ_034",
+        "champ_010",
+        "champ_000"
+      ],
+      "extracted_answer": "1971",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00119",
+      "prediction": "1, 4, 7, 9, 11, 13, 16, 19, 21, 25, 29",
+      "ground_truth": "1 and 19",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "1, 4, 7, 9, 11, 13, 16, 19, 21, 25, 29",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00120",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00121",
+      "prediction": "No",
+      "ground_truth": "Yes",
+      "skill_annotations": [
+        "champ_022"
+      ],
+      "extracted_answer": "No",
+      "correct": false,
+      "match_type": "yes_no"
+    },
+    {
+      "instance_id": "champ_00122",
+      "prediction": "x = 0, y = 2",
+      "ground_truth": "x=0, y=2 and x=9, y=11",
+      "skill_annotations": [
+        "champ_044",
+        "champ_080"
+      ],
+      "extracted_answer": "x = 0, y = 2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00123",
+      "prediction": "(x,y) = (5,2)",
+      "ground_truth": "x=6, y=5",
+      "skill_annotations": [
+        "champ_044"
+      ],
+      "extracted_answer": "(x,y) = (5,2)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00124",
+      "prediction": "Yes",
+      "ground_truth": "Yes",
+      "skill_annotations": [
+        "champ_005"
+      ],
+      "extracted_answer": "Yes",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00127",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_050",
+        "champ_043",
+        "champ_024"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00129",
+      "prediction": "1 + 1000^981 is divisible by 1001, so x is not prime.",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_050",
+        "champ_025"
+      ],
+      "extracted_answer": "1 + 1000^981 is divisible by 1001, so x is not prime.",
+      "correct": true,
+      "match_type": "yes_no"
+    },
+    {
+      "instance_id": "champ_00130",
+      "prediction": "15",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_077",
+        "champ_010",
+        "champ_024",
+        "champ_008"
+      ],
+      "extracted_answer": "15",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00131",
+      "prediction": "1",
+      "ground_truth": "No such values",
+      "skill_annotations": [
+        "champ_024",
+        "champ_022"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00132",
+      "prediction": "(5^125 - 1) / (5^25 - 1) = 5^100 + 5^75",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_073",
+        "champ_006"
+      ],
+      "extracted_answer": "(5^125 - 1) / (5^25 - 1) = 5^100 + 5^75",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00133",
+      "prediction": "Yes",
+      "ground_truth": "Yes",
+      "skill_annotations": [
+        "champ_010",
+        "champ_008",
+        "champ_022"
+      ],
+      "extracted_answer": "Yes",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00134",
+      "prediction": "2025, 3025, 9801",
+      "ground_truth": "9376",
+      "skill_annotations": [
+        "champ_021"
+      ],
+      "extracted_answer": "2025, 3025, 9801",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00135",
+      "prediction": "21978",
+      "ground_truth": "21978",
+      "skill_annotations": [
+        "champ_078"
+      ],
+      "extracted_answer": "21978",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00136",
+      "prediction": "105263157894736842",
+      "ground_truth": "(20*10^15-2)/17, or equivalently 1176470588235294",
+      "skill_annotations": [
+        "champ_038",
+        "champ_010"
+      ],
+      "extracted_answer": "105263157894736842",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00137",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00138",
+      "prediction": "1, 9, 13, 17, 21, 25.",
+      "ground_truth": "1, 4 and 9",
+      "skill_annotations": [
+        "champ_075",
+        "champ_005",
+        "champ_010"
+      ],
+      "extracted_answer": "1, 9, 13, 17, 21, 25.",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00139",
+      "prediction": "0",
+      "ground_truth": "0 pairs",
+      "skill_annotations": [
+        "champ_010",
+        "champ_047"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00140",
+      "prediction": "1",
+      "ground_truth": "At least 1 number",
+      "skill_annotations": [
+        "champ_005",
+        "champ_010",
+        "champ_077"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00141",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_029",
+        "champ_011",
+        "champ_022"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00142",
+      "prediction": "0, 1, 7",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "0, 1, 7",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00143",
+      "prediction": "n(n+1)",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_025",
+        "champ_022",
+        "champ_040"
+      ],
+      "extracted_answer": "n(n+1)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00146",
+      "prediction": "x = 1",
+      "ground_truth": "3 is the only possible value",
+      "skill_annotations": [
+        "champ_006"
+      ],
+      "extracted_answer": "x = 1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00148",
+      "prediction": "5",
+      "ground_truth": "No such values",
+      "skill_annotations": [
+        "champ_033",
+        "champ_038"
+      ],
+      "extracted_answer": "5",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00149",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_078",
+        "champ_010"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00150",
+      "prediction": "m = 1, n = 1",
+      "ground_truth": "No positive integer solutions",
+      "skill_annotations": [
+        "champ_005",
+        "champ_028"
+      ],
+      "extracted_answer": "m = 1, n = 1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00151",
+      "prediction": "p = 3, q = 2",
+      "ground_truth": "p=3, q=2 and p=5, q=3",
+      "skill_annotations": [
+        "champ_075",
+        "champ_005",
+        "champ_010"
+      ],
+      "extracted_answer": "p = 3, q = 2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00152",
+      "prediction": "1",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_033",
+        "champ_048"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00153",
+      "prediction": "2",
+      "ground_truth": "1",
+      "skill_annotations": [
+        "champ_031"
+      ],
+      "extracted_answer": "2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00154",
+      "prediction": "n = 4, m =",
+      "ground_truth": "No integer solutions",
+      "skill_annotations": [
+        "champ_005",
+        "champ_049"
+      ],
+      "extracted_answer": "n = 4, m =",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00156",
+      "prediction": "For z = 2, x(x+1) = y^2. The minimum value of x(x+1) is 2, so y^2 >= 2. The only perfect square >= 2 is 4, so y = 2. Then",
+      "ground_truth": "No integer solutions",
+      "skill_annotations": [
+        "champ_048",
+        "champ_002",
+        "champ_079"
+      ],
+      "extracted_answer": "For z = 2, x(x+1) = y^2. The minimum value of x(x+1) is 2, so y^2 >= 2. The only perfect square >= 2 is 4, so y = 2. Then",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00157",
+      "prediction": "(1,1)",
+      "ground_truth": "x=1, y=1 and x=3, y=2",
+      "skill_annotations": [
+        "champ_073",
+        "champ_006"
+      ],
+      "extracted_answer": "(1,1)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00158",
+      "prediction": "7",
+      "ground_truth": "7",
+      "skill_annotations": [
+        "champ_000",
+        "champ_006",
+        "champ_010"
+      ],
+      "extracted_answer": "7",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00159",
+      "prediction": "1, 3, 7",
+      "ground_truth": "1 and 3",
+      "skill_annotations": [
+        "champ_077",
+        "champ_010"
+      ],
+      "extracted_answer": "1, 3, 7",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00160",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_035",
+        "champ_022",
+        "champ_008"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00161",
+      "prediction": "x = 3",
+      "ground_truth": "3 is the only possible value",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "x = 3",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00162",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_051",
+        "champ_010"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00163",
+      "prediction": "2178",
+      "ground_truth": "2178",
+      "skill_annotations": [
+        "champ_078"
+      ],
+      "extracted_answer": "2178",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00164",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_025",
+        "champ_029",
+        "champ_011"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00165",
+      "prediction": "1, 5, 7, 11, 13, 17, 19, 23",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_075",
+        "champ_006",
+        "champ_029",
+        "champ_010"
+      ],
+      "extracted_answer": "1, 5, 7, 11, 13, 17, 19, 23",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00167",
+      "prediction": "No",
+      "ground_truth": "No possible solutions",
+      "skill_annotations": [
+        "champ_042",
+        "champ_002",
+        "champ_006",
+        "champ_079"
+      ],
+      "extracted_answer": "No",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00168",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_050",
+        "champ_045"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00169",
+      "prediction": "x = y = z",
+      "ground_truth": "No positive integer solutions",
+      "skill_annotations": [
+        "champ_010"
+      ],
+      "extracted_answer": "x = y = z",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00170",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_062"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00171",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_067",
+        "champ_022"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00172",
+      "prediction": "60",
+      "ground_truth": "20",
+      "skill_annotations": [
+        "champ_081",
+        "champ_053",
+        "champ_010"
+      ],
+      "extracted_answer": "60",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00173",
+      "prediction": "0",
+      "ground_truth": "0 roots",
+      "skill_annotations": [
+        "champ_058"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00174",
+      "prediction": "a = 2, b = -3",
+      "ground_truth": "a=3, b=-4",
+      "skill_annotations": [
+        "champ_062"
+      ],
+      "extracted_answer": "a = 2, b = -3",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00175",
+      "prediction": "(x^2 + 1)^2 - x^2",
+      "ground_truth": "(x^2+x+1)(x^2-x+1)",
+      "skill_annotations": [
+        "champ_005",
+        "champ_006"
+      ],
+      "correct": true,
+      "match_type": "symbolic",
+      "extracted_answer": "(x^2 + 1)^2 - x^2"
+    },
+    {
+      "instance_id": "champ_00177",
+      "prediction": "2k - 6",
+      "ground_truth": "k-2 (i.e., all of them)",
+      "skill_annotations": [
+        "champ_035",
+        "champ_011",
+        "champ_022"
+      ],
+      "extracted_answer": "2k - 6",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00178",
+      "prediction": "2n",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_076"
+      ],
+      "extracted_answer": "2n",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00179",
+      "prediction": "(x^4 + 1)^2 - (x^2)^2 = (x^4 + x^2 + 1)(x",
+      "ground_truth": "(x^2+x+1)(x^2-x+1)(x^4-x^2+1)",
+      "skill_annotations": [
+        "champ_005",
+        "champ_006"
+      ],
+      "extracted_answer": "(x^4 + 1)^2 - (x^2)^2 = (x^4 + x^2 + 1)(x",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00180",
+      "prediction": "x^3+y^3+z^3-3xyz = (x+y+z)(x^2+y^2+z^2-xy-xz-yz)",
+      "ground_truth": "(x+y+z)(x^2+y^2+z^2-xy-yz-xz)",
+      "skill_annotations": [
+        "champ_023"
+      ],
+      "extracted_answer": "x^3+y^3+z^3-3xyz = (x+y+z)(x^2+y^2+z^2-xy-xz-yz)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00181",
+      "prediction": "x^2 - 2ax + a^",
+      "ground_truth": "a(1±sqrt(2)), a(1±sqrt(5))/2",
+      "skill_annotations": [
+        "champ_005"
+      ],
+      "extracted_answer": "x^2 - 2ax + a^",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00182",
+      "prediction": "f(x)=0",
+      "ground_truth": "f(x)=0",
+      "skill_annotations": [
+        "champ_019"
+      ],
+      "extracted_answer": "f(x)=0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00184",
+      "prediction": "x^4 = 1 or x^4 = -2. x^4 = 1 gives x = ±1. x^4 = -2 has no real solutions. ANSWER: x = ±1",
+      "ground_truth": "x=±1",
+      "skill_annotations": [
+        "champ_072",
+        "champ_028"
+      ],
+      "extracted_answer": "x^4 = 1 or x^4 = -2. x^4 = 1 gives x = ±1. x^4 = -2 has no real solutions. ANSWER: x = ±1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00185",
+      "prediction": "1",
+      "ground_truth": "7",
+      "skill_annotations": [
+        "champ_065",
+        "champ_067",
+        "champ_022",
+        "champ_011"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00186",
+      "prediction": "f(x) = x^3(x^3+1)(x^3+2)(x^3+3) = (x^3)(x^3+1)(x^3+2)(x^3+3) = (x^3)(x^3+1)(x^3+2)(x^3+3) = (x^3)(x^3+1)(x^3+2)(x^3+",
+      "ground_truth": "-1",
+      "skill_annotations": [
+        "champ_005",
+        "champ_007"
+      ],
+      "extracted_answer": "f(x) = x^3(x^3+1)(x^3+2)(x^3+3) = (x^3)(x^3+1)(x^3+2)(x^3+3) = (x^3)(x^3+1)(x^3+2)(x^3+3) = (x^3)(x^3+1)(x^3+2)(x^3+",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00187",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_022"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00188",
+      "prediction": "-3",
+      "ground_truth": "-3 is the only possible value",
+      "skill_annotations": [
+        "champ_062",
+        "champ_044",
+        "champ_046"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "-3"
+    },
+    {
+      "instance_id": "champ_00189",
+      "prediction": "0",
+      "ground_truth": "At most 0 values (i.e., no such values)",
+      "skill_annotations": [
+        "champ_055"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00190",
+      "prediction": "1",
+      "ground_truth": "((-1)^(n+1)+n+1)/(n+2) (i.e., 1 if for odd n, and n/(n+2) for even n)",
+      "skill_annotations": [
+        "champ_070"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00191",
+      "prediction": "(x^4 - 1)(x^5 + x)",
+      "ground_truth": "(x+1)(x-1)(x^2+1)(x^3−x^2+1)(x^2+x+1)",
+      "skill_annotations": [
+        "champ_006",
+        "champ_046"
+      ],
+      "extracted_answer": "(x^4 - 1)(x^5 + x)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00192",
+      "prediction": "0",
+      "ground_truth": "At most 0 integer-valued zeros (i.e., no integer zeros)",
+      "skill_annotations": [
+        "champ_055"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00193",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_067",
+        "champ_022"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00194",
+      "prediction": "a^2 - 3b/2a",
+      "ground_truth": "(a^3+2b)/(3a)",
+      "skill_annotations": [
+        "champ_053"
+      ],
+      "extracted_answer": "a^2 - 3b/2a",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00195",
+      "prediction": "1",
+      "ground_truth": "5",
+      "skill_annotations": [
+        "champ_067",
+        "champ_073",
+        "champ_011",
+        "champ_022"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00196",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_022",
+        "champ_024"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00197",
+      "prediction": "0",
+      "ground_truth": "0",
+      "skill_annotations": [
+        "champ_014",
+        "champ_017"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00198",
+      "prediction": "1",
+      "ground_truth": "1",
+      "skill_annotations": [
+        "champ_057"
+      ],
+      "extracted_answer": "1",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00199",
+      "prediction": "-2",
+      "ground_truth": "-4",
+      "skill_annotations": [
+        "champ_056"
+      ],
+      "extracted_answer": "-2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00200",
+      "prediction": "x = 81",
+      "ground_truth": "x=16 and x=81",
+      "skill_annotations": [
+        "champ_053"
+      ],
+      "extracted_answer": "x = 81",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00201",
+      "prediction": "x = -1",
+      "ground_truth": "x=±1, ±2, ±1/2",
+      "skill_annotations": [
+        "champ_074",
+        "champ_072",
+        "champ_028"
+      ],
+      "extracted_answer": "x = -1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00202",
+      "prediction": "1",
+      "ground_truth": "x^3-1",
+      "skill_annotations": [
+        "champ_062",
+        "champ_057"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00203",
+      "prediction": "50",
+      "ground_truth": "0 (none of the values)",
+      "skill_annotations": [
+        "champ_065"
+      ],
+      "extracted_answer": "50",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00204",
+      "prediction": "2(a - 3/2)^2 + 2(b - 3/2)^2 - 9/2",
+      "ground_truth": "-3",
+      "skill_annotations": [
+        "champ_080",
+        "champ_005",
+        "champ_007"
+      ],
+      "extracted_answer": "2(a - 3/2)^2 + 2(b - 3/2)^2 - 9/2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00205",
+      "prediction": "5",
+      "ground_truth": "890",
+      "skill_annotations": [
+        "champ_044",
+        "champ_022"
+      ],
+      "extracted_answer": "5",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00206",
+      "prediction": "1",
+      "ground_truth": "At most 0 integer-valued roots (i.e., no integer roots)",
+      "skill_annotations": [
+        "champ_055"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00207",
+      "prediction": "No",
+      "ground_truth": "Yes",
+      "skill_annotations": [
+        "champ_067",
+        "champ_022"
+      ],
+      "extracted_answer": "No",
+      "correct": false,
+      "match_type": "yes_no"
+    },
+    {
+      "instance_id": "champ_00208",
+      "prediction": "0",
+      "ground_truth": "0 is the only possible value",
+      "skill_annotations": [
+        "champ_062",
+        "champ_043"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "0"
+    },
+    {
+      "instance_id": "champ_00209",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_056"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00210",
+      "prediction": "0",
+      "ground_truth": "x(x-1)(x-2)...(x-2022)",
+      "skill_annotations": [
+        "champ_055"
+      ],
+      "extracted_answer": "0",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00211",
+      "prediction": "84",
+      "ground_truth": "120",
+      "skill_annotations": [
+        "champ_065",
+        "champ_028"
+      ],
+      "extracted_answer": "84",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00212",
+      "prediction": "x_1^2+x_2^2+x_3^2 = (x_1+x_2+x_3)^2 - 2(x_1x_2+x_1x_3+x_2x_3) = (-3)^2 - 2*(-7) = 9 + 14",
+      "ground_truth": "23",
+      "skill_annotations": [
+        "champ_056"
+      ],
+      "extracted_answer": "x_1^2+x_2^2+x_3^2 = (x_1+x_2+x_3)^2 - 2(x_1x_2+x_1x_3+x_2x_3) = (-3)^2 - 2*(-7) = 9 + 14",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00213",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_071"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00214",
+      "prediction": "(1, 1), (2, 0), (0, 2), (-1, -1), (-2, -1), (-1, -2)",
+      "ground_truth": "(x=8, y=2), (x=2, y=8)",
+      "skill_annotations": [
+        "champ_044",
+        "champ_005",
+        "champ_062"
+      ],
+      "extracted_answer": "(1, 1), (2, 0), (0, 2), (-1, -1), (-2, -1), (-1, -2)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00215",
+      "prediction": "1",
+      "ground_truth": "-5",
+      "skill_annotations": [
+        "champ_058"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00216",
+      "prediction": "x = 2, y = 1",
+      "ground_truth": "(x=1, y=2) and (x=2, y=1)",
+      "skill_annotations": [
+        "champ_053"
+      ],
+      "extracted_answer": "x = 2, y = 1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00217",
+      "prediction": "x^100-2x^51+1 = (x^2-1)q(x) + ax+b.",
+      "ground_truth": "-2x+2",
+      "skill_annotations": [
+        "champ_062"
+      ],
+      "extracted_answer": "x^100-2x^51+1 = (x^2-1)q(x) + ax+b.",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00218",
+      "prediction": "0",
+      "ground_truth": "0 (i.e., no real-valued zeros)",
+      "skill_annotations": [
+        "champ_018"
+      ],
+      "extracted_answer": "0",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00219",
+      "prediction": "S(x) = x^2 - (a-2)x - a - 1. Let r and s be the zeros of S(x). By Vieta's formulas, r + s = a - 2 and rs = -(a + 1). We want to minimize r^2 + s^2. Note that r^2 + s^2 = (r + s)^2 - 2rs = (a - 2)^2 + 2(a +",
+      "ground_truth": "5",
+      "skill_annotations": [
+        "champ_081",
+        "champ_005",
+        "champ_007"
+      ],
+      "extracted_answer": "S(x) = x^2 - (a-2)x - a - 1. Let r and s be the zeros of S(x). By Vieta's formulas, r + s = a - 2 and rs = -(a + 1). We want to minimize r^2 + s^2. Note that r^2 + s^2 = (r + s)^2 - 2rs = (a - 2)^2 + 2(a +",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00221",
+      "prediction": "3",
+      "ground_truth": "3",
+      "skill_annotations": [
+        "champ_010",
+        "champ_050"
+      ],
+      "extracted_answer": "3",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00223",
+      "prediction": "Yes, the limit is 0.",
+      "ground_truth": "The limit does not exist",
+      "skill_annotations": [
+        "champ_044"
+      ],
+      "extracted_answer": "Yes, the limit is 0.",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00225",
+      "prediction": "1",
+      "ground_truth": "The limit exists and is equal to 2",
+      "skill_annotations": [
+        "champ_054",
+        "champ_037",
+        "champ_003"
+      ],
+      "extracted_answer": "1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00226",
+      "prediction": "No",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_063",
+        "champ_027"
+      ],
+      "extracted_answer": "No",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00227",
+      "prediction": "x_n -> sqrt(a)",
+      "ground_truth": "The only possible value for the limit is sqrt(a)",
+      "skill_annotations": [
+        "champ_005"
+      ],
+      "extracted_answer": "x_n -> sqrt(a)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00229",
+      "prediction": "L = 4",
+      "ground_truth": "The limit exists and is equal to 4",
+      "skill_annotations": [
+        "champ_003",
+        "champ_064"
+      ],
+      "extracted_answer": "L = 4",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00231",
+      "prediction": "Yes",
+      "ground_truth": "Always greater than 20",
+      "skill_annotations": [
+        "champ_068",
+        "champ_005",
+        "champ_001"
+      ],
+      "extracted_answer": "Yes",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00232",
+      "prediction": "fibonacci(10)",
+      "ground_truth": "89",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "fibonacci(10)",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00233",
+      "prediction": "1275",
+      "ground_truth": "2500",
+      "skill_annotations": [
+        "champ_005"
+      ],
+      "extracted_answer": "1275",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00234",
+      "prediction": "f(n) = (x_n^4 + 9)/(10x_n) <= 5/4.",
+      "ground_truth": "999 (i.e., all except for one value)",
+      "skill_annotations": [
+        "champ_066"
+      ],
+      "extracted_answer": "f(n) = (x_n^4 + 9)/(10x_n) <= 5/4.",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00235",
+      "prediction": "-1/4",
+      "ground_truth": "-1/2",
+      "skill_annotations": [
+        "champ_005",
+        "champ_007"
+      ],
+      "extracted_answer": "-1/4",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00237",
+      "prediction": "No",
+      "ground_truth": "It is not possible",
+      "skill_annotations": [
+        "champ_065"
+      ],
+      "extracted_answer": "No",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00238",
+      "prediction": "L = 2",
+      "ground_truth": "The limit exists and is equal to 2",
+      "skill_annotations": [
+        "champ_003"
+      ],
+      "extracted_answer": "L = 2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00241",
+      "prediction": "1/2",
+      "ground_truth": "The limit exists and is equal to 2/3",
+      "skill_annotations": [
+        "champ_046",
+        "champ_005"
+      ],
+      "extracted_answer": "1/2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00243",
+      "prediction": "(3a + b) / 4",
+      "ground_truth": "The limit exists and is equal to (a+3b)/2",
+      "skill_annotations": [
+        "champ_020",
+        "champ_065"
+      ],
+      "extracted_answer": "(3a + b) / 4",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00244",
+      "prediction": "L = 1",
+      "ground_truth": "The only possible value for the limit is 4",
+      "skill_annotations": [
+        "champ_064",
+        "champ_003"
+      ],
+      "extracted_answer": "L = 1",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00246",
+      "prediction": "1/3",
+      "ground_truth": "8",
+      "skill_annotations": [
+        "champ_005",
+        "champ_006"
+      ],
+      "extracted_answer": "1/3",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00248",
+      "prediction": "f(n) = (x_n^4 + 9)/(10x_n) > 4/5.",
+      "ground_truth": "1000 (i.e., all values)",
+      "skill_annotations": [
+        "champ_066"
+      ],
+      "extracted_answer": "f(n) = (x_n^4 + 9)/(10x_n) > 4/5.",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00249",
+      "prediction": "monotonically decreasing",
+      "ground_truth": "Monotonically increasing",
+      "skill_annotations": [
+        "champ_063"
+      ],
+      "extracted_answer": "monotonically decreasing",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00250",
+      "prediction": "No",
+      "ground_truth": "Yes",
+      "skill_annotations": [
+        "champ_059",
+        "champ_060",
+        "champ_071"
+      ],
+      "extracted_answer": "No",
+      "correct": false,
+      "match_type": "yes_no"
+    },
+    {
+      "instance_id": "champ_00251",
+      "prediction": "No",
+      "ground_truth": "The sequence does not exist",
+      "skill_annotations": [
+        "champ_048",
+        "champ_000"
+      ],
+      "extracted_answer": "No",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00254",
+      "prediction": "512",
+      "ground_truth": "125",
+      "skill_annotations": [
+        "champ_012"
+      ],
+      "extracted_answer": "512",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00255",
+      "prediction": "Yes, the limit is (1 + sqrt(1 + 4a))/2",
+      "ground_truth": "The limit exists and is equal to (1+sqrt(4a+1))/2",
+      "skill_annotations": [
+        "champ_003",
+        "champ_064",
+        "champ_070"
+      ],
+      "extracted_answer": "Yes, the limit is (1 + sqrt(1 + 4a))/2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00257",
+      "prediction": "Yes, the sequence is 1/8, 1/64, 1/512, 1/4096, ...",
+      "ground_truth": "Yes, and the sequence is 1/2^3, 1/2^6, 1/2^9, ...",
+      "skill_annotations": [
+        "champ_065"
+      ],
+      "extracted_answer": "Yes, the sequence is 1/8, 1/64, 1/512, 1/4096, ...",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00259",
+      "prediction": "Yes",
+      "ground_truth": "Yes",
+      "skill_annotations": [
+        "champ_044"
+      ],
+      "extracted_answer": "Yes",
+      "correct": true,
+      "match_type": "exact"
+    },
+    {
+      "instance_id": "champ_00263",
+      "prediction": "x_p=x_q for p≠q is impossible.",
+      "ground_truth": "No",
+      "skill_annotations": [
+        "champ_059",
+        "champ_069"
+      ],
+      "extracted_answer": "x_p=x_q for p≠q is impossible.",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00264",
+      "prediction": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "ground_truth": "There are no prime numbers in the sequence",
+      "skill_annotations": [
+        "champ_065",
+        "champ_006",
+        "champ_035",
+        "champ_025"
+      ],
+      "extracted_answer": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00266",
+      "prediction": "2",
+      "ground_truth": "0 (i.e., no sequence is bounded)",
+      "skill_annotations": [
+        "champ_068",
+        "champ_005",
+        "champ_001"
+      ],
+      "extracted_answer": "2",
+      "correct": false,
+      "match_type": "none"
+    },
+    {
+      "instance_id": "champ_00267",
+      "prediction": "3",
+      "ground_truth": "The limit exists and is equal to 3",
+      "skill_annotations": [
+        "champ_003",
+        "champ_064"
+      ],
+      "correct": true,
+      "match_type": "canonical",
+      "extracted_answer": "3"
+    }
+  ]
+}

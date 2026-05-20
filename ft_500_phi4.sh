@@ -1,3 +1,4 @@
+pip install protoc >= 3.19.0
 cd /mnt/hdfs/wangchangyue/500xCompressor/codes
 
 python convert_checkpoint.py /mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain
@@ -12,8 +13,8 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 deepspeed  --master_port=11470 finetune_500xCom
     --train_text_path /mnt/hdfs/wangchangyue/500xCompressor/data/train_qa.jsonl \
     --test_text_path /mnt/hdfs/wangchangyue/500xCompressor/data/test_qa.jsonl \
     --lora_path /mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_pretrain/checkpoint_best/pytorch_model.bin \
-    --output_dir /mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_finetune2 \
-    --logging_dir /mnt/hdfs/wangchangyue/500xCompressor/logs/500xCompressor_finetune2 \
+    --output_dir /mnt/hdfs/wangchangyue/500xCompressor/output/500xCompressor_finetune3 \
+    --logging_dir /mnt/hdfs/wangchangyue/500xCompressor/logs/500xCompressor_finetune3 \
     --project_name "500xCompressor-finetuning" \
     --deepspeed_config /mnt/hdfs/wangchangyue/500xCompressor/codes/deepspeed_configurations.json \
     --num_train_epochs 10 \
