@@ -3,6 +3,17 @@ import torch.nn as nn
 from peft import get_peft_model
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
+
+def _checkpoint_state(lora_params_path):
+    state = torch.load(lora_params_path, map_location="cpu")
+    if isinstance(state, dict):
+        for key in ("state_dict", "model", "module"):
+            nested = state.get(key)
+            if isinstance(nested, dict) and nested and all(torch.is_tensor(v) for v in nested.values()):
+                return nested
+    return state
+
+
 def load_lora_parameters(model, lora_params_path):
     """
     Integrate LoRA parameters into the base LLM.
@@ -12,23 +23,38 @@ def load_lora_parameters(model, lora_params_path):
         lora_params_path (str): The path to the saved LoRA parameters.
     """
     # load the saved LoRA parameters
-    lora_params = torch.load(lora_params_path)
+    lora_params = _checkpoint_state(lora_params_path)
 
     # integrate LoRA parameters into the LLM
+    loaded = 0
+    missing = []
+    mismatched = []
     with torch.no_grad():
         for name, param in model.named_parameters():
-            if name in lora_params: 
-                # update the compressed token or LoRA parameters or the token for regeneration
-                if 'lora' in name or 'memory_embeddings' in name or "ae_embedding" in name:
-                    param.copy_(lora_params[name])
-                    if 'memory_embeddings' in name:
-                        print("Find memory_embeddings!")
-                    if "ae_embedding" in name:
-                        print("Find ae_embedding!")
-                else:
-                    print(f"No saved parameter for {name}")
-            elif "lora" in name:
-                print(f"No saved parameter for {name}")
+            if 'lora' not in name and 'memory_embeddings' not in name and "ae_embedding" not in name:
+                continue
+
+            candidates = [name, f"module.{name}"]
+            if name.startswith("llama."):
+                stripped = name[len("llama."):]
+                candidates.extend([stripped, f"module.{stripped}"])
+
+            tensor = next((lora_params[key] for key in candidates if key in lora_params), None)
+            if tensor is None:
+                missing.append(name)
+                continue
+            if tuple(tensor.shape) != tuple(param.shape):
+                mismatched.append(f"{name}: ckpt={tuple(tensor.shape)} model={tuple(param.shape)}")
+                continue
+
+            param.copy_(tensor.to(device=param.device, dtype=param.dtype))
+            loaded += 1
+
+    print(f"Loaded {loaded} trainable tensors from {lora_params_path}")
+    if missing:
+        print(f"WARNING: missing {len(missing)} trainable tensors, first few: {missing[:8]}")
+    if mismatched:
+        print(f"WARNING: shape-mismatched tensors, first few: {mismatched[:8]}")
 
 
 class L3ICAE(nn.Module):
@@ -61,7 +87,9 @@ class L3ICAE(nn.Module):
             cache_dir=cache_dir, 
             use_auth_token=use_auth_token,
             torch_dtype=torch.bfloat16,
+            trust_remote_code=True,
         )
+        hidden_size = int(self.llama.config.hidden_size)
         print("LLaMA loaded.")
         self.llama = get_peft_model(self.llama, lora_config)
         print("LoRA added.")
@@ -71,17 +99,30 @@ class L3ICAE(nn.Module):
         self.tokenizer = AutoTokenizer.from_pretrained(
             llama_path, 
             cache_dir=cache_dir, 
-            use_auth_token=use_auth_token
+            use_auth_token=use_auth_token,
+            trust_remote_code=True,
         )
         print("LLaMA tokenizer loaded.")
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.max_length = max_length
         self.num_mem = num_mem
-        self.memory_embeddings = nn.Parameter(torch.randn(1, num_mem, 4096, dtype=torch.bfloat16).to(device))
-        self.ae_embedding = nn.Parameter(torch.randn(1, 1, 4096, dtype=torch.bfloat16).to(device))
+        self.memory_embeddings = nn.Parameter(torch.randn(1, num_mem, hidden_size, dtype=torch.bfloat16).to(device))
+        self.ae_embedding = nn.Parameter(torch.randn(1, 1, hidden_size, dtype=torch.bfloat16).to(device))
         load_lora_parameters(self, lora_path)
         print("LoRA updated.")
         self.device = device
+        self.stop_token_ids = self._build_stop_token_ids()
+
+    def _build_stop_token_ids(self):
+        stop_ids = set()
+        for value in (self.tokenizer.eos_token_id, self.tokenizer.pad_token_id):
+            if value is not None:
+                stop_ids.add(int(value))
+        for token in ("<|eot_id|>", "<|endoftext|>", "<|im_end|>"):
+            token_id = self.tokenizer.convert_tokens_to_ids(token)
+            if isinstance(token_id, int) and token_id >= 0 and token_id != self.tokenizer.unk_token_id:
+                stop_ids.add(int(token_id))
+        return stop_ids
 
     def compress(self, text, text_tokens=None, output_path=None):
         """
@@ -143,21 +184,26 @@ class L3ICAE(nn.Module):
             # predict the next new token by the original LLM
             with self.llama.disable_adapter():
                 if i == 0:
-                    output = self.llama(inputs_embeds=input_embeddings)
+                    output = self.llama(inputs_embeds=input_embeddings, use_cache=True)
                 else:
-                    output = self.llama(inputs_embeds=input_embeddings, past_key_values=past_key_values)
+                    output = self.llama(
+                        inputs_embeds=input_embeddings,
+                        past_key_values=past_key_values,
+                        use_cache=True
+                    )
             logits = output.logits
             past_key_values = output.past_key_values
 
             # choose the token id with the highest probability
             next_token = torch.argmax(logits[:, -1, :], dim=-1)
+            token_id = int(next_token.item())
 
             # stop generating new tokens when meet end tokens
-            if next_token == torch.tensor([128001], device='cuda:0') or next_token == self.tokenizer.eos_token_id:
+            if token_id in self.stop_token_ids:
                 break
 
             # add the new token to generated tokens
-            generated_text.append(next_token.item())
+            generated_text.append(token_id)
         
             # update the input token
             input_tokens = next_token.unsqueeze(0)
